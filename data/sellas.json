@@ -1,0 +1,124 @@
+{
+    "name": "sellas json",
+    "version": "0.0",
+    "database": "data.db",
+
+    "boss": [
+        {
+            "name": "zakum",
+            "image": "images/boss/zakum/boss_image_zakum.png",
+            "difficulty": [["easy/normal", "daily"], ["chaos", "weekly"]]
+        },
+        {
+            "name": "magnus",
+            "image": "images/boss/magnus/boss_image_magnus.png",
+            "difficulty": [["easy/normal", "daily"], ["hard", "weekly"]]
+        },
+        {
+            "name": "hilla",
+            "image": "images/boss/hilla/boss_image_hilla.png",
+            "difficulty": [["normal", "daily"], ["hard", "weekly"]]
+        },
+        {
+            "name": "kaung",
+            "image": "images/boss/kaung/boss_image_kaung.png",
+            "difficulty": [["normal", "daily"]]
+        },
+        {
+            "name": "papulatus",
+            "image": "images/boss/papulatus/boss_image_papulatus.png",
+            "difficulty": [["easy/normal", "daily"], ["chaos", "weekly"]]
+        },
+        {
+            "name": "pierre",
+            "image": "images/boss/pierre/boss_image_pierre.png",
+            "difficulty": [["normal", "daily"], ["chaos", "weekly"]]
+        },
+        {
+            "name": "banban",
+            "image": "images/boss/banban/boss_image_banban.png",
+            "difficulty": [["normal", "daily"], ["hard", "weekly"]]
+        },
+        {
+            "name": "bloodyqueen",
+            "image": "images/boss/bloodyqueen/boss_image_bloodyqueen.png",
+            "difficulty": [["normal", "daily"], ["hard", "weekly"]]
+        },
+        {
+            "name": "bellum",
+            "image": "images/boss/bellum/boss_image_bellum.png",
+            "difficulty": [["normal", "daily"], ["hard", "weekly"]]
+        },
+        {
+            "name": "vanleon",
+            "image": "images/boss/vanleon/boss_image_vanleon.png",
+            "difficulty": [["easy/normal", "daily"], ["hard", "weekly"]]
+        },
+        {
+            "name": "horntail",
+            "image": "images/boss/horntail/boss_image_horntail.png",
+            "difficulty": [["easy/normal", "daily"], ["chaos", "weekly"]]
+        },
+        {
+            "name": "arkairum",
+            "image": "images/boss/arkairum/boss_image_arkairum.png",
+            "difficulty": [["easy/normal", "daily"]]
+        },
+        {
+            "name": "pinkbean",
+            "image": "images/boss/pinkbean/boss_image_pinkbean.png",
+            "difficulty": [["normal", "daily"], ["chaos", "weekly"]]
+        },
+        {
+            "name": "cygnus",
+            "image": "images/boss/cygnus/boss_image_cygnus.png",
+            "difficulty": [["easy/normal", "weekly"]]
+        },
+        {
+            "name": "suo",
+            "image": "images/boss/suo/boss_image_suo.png",
+            "difficulty": [["normal/hard", "weekly"]]
+        },
+        {
+            "name": "demian",
+            "image": "images/boss/demian/boss_image_demian.png",
+            "difficulty": [["normal/hard", "weekly"]]
+        },
+        {
+            "name": "lucid",
+            "image": "images/boss/lucid/boss_image_lucid.png",
+            "difficulty": [["easy/normal/hard", "weekly"]]
+        },
+        {
+            "name": "will",
+            "image": "images/boss/will/boss_image_will.png",
+            "difficulty": [["normal/hard", "weekly"]]
+        },
+        {
+            "name": "dusk",
+            "image": "images/boss/dusk/boss_image_dusk.png",
+            "difficulty": [["normal/chaos", "weekly"]]
+        },
+        {
+            "name": "jinhilla",
+            "image": "images/boss/jinhilla/boss_image_jinhilla.png",
+            "difficulty": [["hard", "weekly"]]
+        },
+        {
+            "name": "dunkel",
+            "image": "images/boss/dunkel/boss_image_dunkel.png",
+            "difficulty": [["normal/hard", "weekly"]]
+        },
+        {
+            "name": "blackmage",
+            "image": "images/boss/blackmage/boss_image_blackmage.png",
+            "difficulty": [["hard", "monthly"]]
+        },
+        {
+            "name": "seren",
+            "image": "images/boss/seren/boss_image_seren.png",
+            "difficulty": [["hard", "weekly"]]
+        }
+
+    ]
+}
