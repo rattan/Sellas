@@ -22,7 +22,9 @@ SOURCES += \
     model/boss.cpp \
     model/sellas.cpp \
     model/sellasparser.cpp \
-    ui/bosslistwidgetitem.cpp \
+    ui/bossdifficultbutton.cpp \
+    ui/bosslistwidget.cpp \
+    ui/sellaslistwidget.cpp \
     ui/widget.cpp
 
 HEADERS += \
@@ -31,10 +33,13 @@ HEADERS += \
     model/boss.h \
     model/sellas.h \
     model/sellasparser.h \
-    ui/bosslistwidgetitem.h \
+    ui/bossdifficultbutton.h \
+    ui/bosslistwidget.h \
+    ui/sellaslistwidget.h \
     ui/widget.h
 
 FORMS += \
+    bosslistwidget.ui \
     widget.ui
 
 TRANSLATIONS += \
@@ -49,3 +54,6 @@ DISTFILES += \
     LICENSE.txt \
     README.md \
     data/sellas.json
+
+RESOURCES += \
+    resource.qrc

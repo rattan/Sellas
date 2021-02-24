@@ -3,6 +3,8 @@
 
 #include <QtNetwork>
 #include <QUrl>
+#include <QScrollBar>
+#include <ui/bosslistwidget.h>
 
 #include <ui/bosslistwidgetitem.h>
 
@@ -17,12 +19,14 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
 SellasParser parser(QFile("sellas.json"));
     Sellas sellas = parser.parse();
+    ui->listWidget_2->horizontalScrollBar()->setSingleStep(1);
     for(auto boss: sellas.getBossList()) {
         QListWidgetItem *it = new QListWidgetItem(ui->listWidget_2);
-        BossListWidgetItem *item = new BossListWidgetItem(boss);
+        ui->listWidget_2->addItem(it);
+        BossListWidget *item = new BossListWidget(boss);
         it->setSizeHint(item->sizeHint());
         ui->listWidget_2->setItemWidget(it, item);
-        ui->listWidget_2->addItem(it);
+        qDebug()<<boss.getName();
     }
     for(int i=0;i<5;++i) {
 

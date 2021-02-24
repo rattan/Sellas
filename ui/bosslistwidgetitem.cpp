@@ -4,17 +4,24 @@
 #include <QLabel>
 #include <QPixmap>
 #include <QPushButton>
+#include <ui_Boss.h>
 
-BossListWidgetItem::BossListWidgetItem(Boss boss):layout(QBoxLayout::TopToBottom)
+BossListWidgetItem::BossListWidgetItem(Boss boss, QWidget *parent): layout(QBoxLayout::TopToBottom), QWidget(parent), ui(new Ui::BossWidget)
 {
-    QPushButton *button = new QPushButton("TEST");
-layout.addWidget(button);
-QLabel *label = new QLabel(boss.getName());
+    ui->setupUi(this);
 QPixmap bossPixmap = boss.getImagePixmap();
-
-
+ui->bossImageLabel->setPixmap(bossPixmap);
+QLabel *label = new QLabel;
 label->setPixmap(bossPixmap);
 layout.addWidget(label);
 layout.setSizeConstraint(QBoxLayout::SetFixedSize);
-this->setLayout(&layout);
+this->setBaseSize(242, 263);
+setFixedWidth(242);
+setFixedHeight(263);
+//this->setLayout(&layout);
+}
+
+BossListWidgetItem::~BossListWidgetItem()
+{
+    delete ui;
 }

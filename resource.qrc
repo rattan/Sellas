@@ -1,0 +1,140 @@
+<RCC>
+    <qresource prefix="/images/boss/arkairum">
+        <file>images/boss/arkairum/boss_icon_arkairum.png</file>
+        <file>images/boss/arkairum/boss_icon_arkairum_disabled.png</file>
+        <file>images/boss/arkairum/boss_image_arkairum.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/balrog">
+        <file>images/boss/balrog/boss_icon_balrog.png</file>
+        <file>images/boss/balrog/boss_icon_balrog_disabled.png</file>
+        <file>images/boss/balrog/boss_image_balrog_disabled.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/banban">
+        <file>images/boss/banban/boss_icon_banban.png</file>
+        <file>images/boss/banban/boss_icon_banban_disabled.png</file>
+        <file>images/boss/banban/boss_image_banban.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/bellum">
+        <file>images/boss/bellum/boss_icon_bellum.png</file>
+        <file>images/boss/bellum/boss_icon_bellum_disabled.png</file>
+        <file>images/boss/bellum/boss_image_bellum.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/blackmage">
+        <file>images/boss/blackmage/boss_icon_blackmage.png</file>
+        <file>images/boss/blackmage/boss_icon_blackmage_disabled.png</file>
+        <file>images/boss/blackmage/boss_image_blackmage.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/bloodyqueen">
+        <file>images/boss/bloodyqueen/boss_icon_bloodyqueen.png</file>
+        <file>images/boss/bloodyqueen/boss_icon_bloodyqueen_disabled.png</file>
+        <file>images/boss/bloodyqueen/boss_image_bloodyqueen.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/cygnus">
+        <file>images/boss/cygnus/boss_icon_cygnus.png</file>
+        <file>images/boss/cygnus/boss_icon_cygnus_disabled.png</file>
+        <file>images/boss/cygnus/boss_image_cygnus.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/demian">
+        <file>images/boss/demian/boss_icon_demian.png</file>
+        <file>images/boss/demian/boss_icon_demian_disabled.png</file>
+        <file>images/boss/demian/boss_image_demian.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/dunkel">
+        <file>images/boss/dunkel/boss_icon_dunkel.png</file>
+        <file>images/boss/dunkel/boss_icon_dunkel_disabled.png</file>
+        <file>images/boss/dunkel/boss_image_dunkel.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/dusk">
+        <file>images/boss/dusk/boss_icon_dusk.png</file>
+        <file>images/boss/dusk/boss_icon_dusk_disabled.png</file>
+        <file>images/boss/dusk/boss_image_dusk.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/hilla">
+        <file>images/boss/hilla/boss_icon_hilla.png</file>
+        <file>images/boss/hilla/boss_icon_hilla_disabled.png</file>
+        <file>images/boss/hilla/boss_image_hilla.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/horntail">
+        <file>images/boss/horntail/boss_icon_horntail.png</file>
+        <file>images/boss/horntail/boss_icon_horntail_disabled.png</file>
+        <file>images/boss/horntail/boss_image_horntail.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/jinhilla">
+        <file>images/boss/jinhilla/boss_icon_jinhilla.png</file>
+        <file>images/boss/jinhilla/boss_icon_jinhilla_disabled.png</file>
+        <file>images/boss/jinhilla/boss_image_jinhilla.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/kaung">
+        <file>images/boss/kaung/boss_icon_kaung.png</file>
+        <file>images/boss/kaung/boss_icon_kaung_disabled.png</file>
+        <file>images/boss/kaung/boss_image_kaung.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/lucid">
+        <file>images/boss/lucid/boss_icon_lucid.png</file>
+        <file>images/boss/lucid/boss_icon_lucid_disabled.png</file>
+        <file>images/boss/lucid/boss_image_lucid.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/magnus">
+        <file>images/boss/magnus/boss_icon_magnus.png</file>
+        <file>images/boss/magnus/boss_icon_magnus_disabled.png</file>
+        <file>images/boss/magnus/boss_image_magnus.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/papulatus">
+        <file>images/boss/papulatus/boss_icon_papulatus.png</file>
+        <file>images/boss/papulatus/boss_icon_papulatus_disabled.png</file>
+        <file>images/boss/papulatus/boss_image_papulatus.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/pierre">
+        <file>images/boss/pierre/boss_icon_pierre.png</file>
+        <file>images/boss/pierre/boss_icon_pierre_disabled.png</file>
+        <file>images/boss/pierre/boss_image_pierre.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/pinkbean">
+        <file>images/boss/pinkbean/boss_icon_pinkbean.png</file>
+        <file>images/boss/pinkbean/boss_icon_pinkbean_disabled.png</file>
+        <file>images/boss/pinkbean/boss_image_pinkbean.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/seren">
+        <file>images/boss/seren/boss_icon_seren.png</file>
+        <file>images/boss/seren/boss_icon_seren_disabled.png</file>
+        <file>images/boss/seren/boss_image_seren.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/suo">
+        <file>images/boss/suo/boss_icon_suo.png</file>
+        <file>images/boss/suo/boss_icon_suo_disabled.png</file>
+        <file>images/boss/suo/boss_image_suo.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/urus">
+        <file>images/boss/urus/boss_icon_urus.png</file>
+        <file>images/boss/urus/boss_icon_urus_disabled.png</file>
+        <file>images/boss/urus/boss_image_urus.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/vanleon">
+        <file>images/boss/vanleon/boss_icon_vanleon.png</file>
+        <file>images/boss/vanleon/boss_icon_vanleon_disabled.png</file>
+        <file>images/boss/vanleon/boss_image_vanleon.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/will">
+        <file>images/boss/will/boss_icon_will.png</file>
+        <file>images/boss/will/boss_icon_will_disabled.png</file>
+        <file>images/boss/will/boss_image_will.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/zakum">
+        <file>images/boss/zakum/boss_icon_zakum.png</file>
+        <file>images/boss/zakum/boss_icon_zakum_disabled.png</file>
+        <file>images/boss/zakum/boss_image_zakum.png</file>
+    </qresource>
+    <qresource prefix="/images/boss/ui">
+        <file>images/boss/ui/difficult_background.png</file>
+        <file>images/boss/ui/difficult_button.png</file>
+        <file>images/boss/ui/difficult_chaos.png</file>
+        <file>images/boss/ui/difficult_chaos_gray.png</file>
+        <file>images/boss/ui/difficult_easy.png</file>
+        <file>images/boss/ui/difficult_easy_gray.png</file>
+        <file>images/boss/ui/difficult_hard.png</file>
+        <file>images/boss/ui/difficult_hard_gray.png</file>
+        <file>images/boss/ui/difficult_normal.png</file>
+        <file>images/boss/ui/difficult_normal_gray.png</file>
+    </qresource>
+    <qresource prefix="/new/prefix1"/>
+</RCC>
