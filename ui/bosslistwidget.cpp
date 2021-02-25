@@ -8,7 +8,9 @@ BossListWidget::BossListWidget(Boss &boss, QWidget *parent) :
 {
     ui->setupUi(this);
     ui->bossImageLabel->setPixmap(bossData.getImagePixmap());
-
+    ui->difficultCancelButton1->setImage(SellasButton::Image::BOSS_DIFFICULT_CANCEL);
+    ui->difficultCancelButton2->setImage(SellasButton::Image::BOSS_DIFFICULT_CANCEL);
+    ui->difficultCancelButton3->setImage(SellasButton::Image::BOSS_DIFFICULT_CANCEL);
 }
 
 BossListWidget::~BossListWidget()

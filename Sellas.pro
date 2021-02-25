@@ -24,6 +24,7 @@ SOURCES += \
     model/sellasparser.cpp \
     ui/bossdifficultbutton.cpp \
     ui/bosslistwidget.cpp \
+    ui/sellasbutton.cpp \
     ui/sellaslistwidget.cpp \
     ui/widget.cpp
 
@@ -35,6 +36,7 @@ HEADERS += \
     model/sellasparser.h \
     ui/bossdifficultbutton.h \
     ui/bosslistwidget.h \
+    ui/sellasbutton.h \
     ui/sellaslistwidget.h \
     ui/widget.h
 

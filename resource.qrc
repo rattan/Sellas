@@ -136,5 +136,10 @@
         <file>images/boss/ui/difficult_normal.png</file>
         <file>images/boss/ui/difficult_normal_gray.png</file>
     </qresource>
-    <qresource prefix="/new/prefix1"/>
+    <qresource prefix="/images/ui/button/boss_difficult_cancel">
+        <file>images/ui/button/boss_difficult_cancel/boss_difficult_cancel.png</file>
+        <file>images/ui/button/boss_difficult_cancel/boss_difficult_cancel_click.png</file>
+        <file>images/ui/button/boss_difficult_cancel/boss_difficult_cancel_disable.png</file>
+        <file>images/ui/button/boss_difficult_cancel/boss_difficult_cancel_mouse_over.png</file>
+    </qresource>
 </RCC>

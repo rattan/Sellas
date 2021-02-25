@@ -33,6 +33,7 @@ SellasParser parser(QFile("sellas.json"));
         ui->listWidget->addItem(QString::number(i));
     }
     connect(ui->listWidget, &QListWidget::itemClicked, this, &Widget::on_character_list_item_clicked);
+    QPushButton bt;
 }
 
 Widget::~Widget()
