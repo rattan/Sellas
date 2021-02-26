@@ -31,3 +31,15 @@ void DatabaseManager::createTables()
     query.exec(CREATE_TABLE_BOSS_QUERY);
     qDebug()<<"Create tables";
 }
+
+QSqlQuery DatabaseManager::query(const QString queryString, const QMap<QString, QVariant> bindValues)
+{
+    QSqlQuery query(database);
+    query.prepare(queryString);
+    for(auto bindValue: bindValues.keys()) {
+        query.bindValue(bindValue, bindValues.value(bindValue));
+    }
+    query.exec();
+    return query;
+}
+

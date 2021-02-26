@@ -1,10 +1,12 @@
 #include "bosswidget.h"
 #include "ui_bosswidget.h"
 
-void BossWidget::difficultCancelButtonClick()
+void BossWidget::difficultCancelButtonClick(bool checked)
 {
-    QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
+    qDebug()<<"difficultCancelButtonClick";
+    SellasButton* buttonSender = qobject_cast<SellasButton*>(sender());
     QString difficult = buttonSender->text();
+    qDebug()<<difficult;
 
 }
 
@@ -28,15 +30,13 @@ BossWidget::BossWidget(Boss &boss, QWidget *parent) :
             cancelButton = ui->difficultCancelButton3;
         }
 
-        if(difficultButton != nullptr) {
-            difficultButtonMap.insert(difficult.getName(), difficultButton);
+        if(difficultButton != nullptr && cancelButton != nullptr) {
+            difficultButtonMap.insert(difficult.getName(), std::make_tuple(difficultButton, cancelButton, &difficult));
             difficultButton->setText(difficult.getName());
             difficultButton->raise();
             difficultButton->setVisible(true);
-            qDebug()<<difficult.getName();
-        }
-        if(cancelButton != nullptr) {
-            cancelButtonMap.insert(difficult.getName(), cancelButton);
+
+            connect(cancelButton, &SellasButton::clicked, this, &BossWidget::difficultCancelButtonClick);
             cancelButton->setImage(SellasButton::Image::BOSS_DIFFICULT_CANCEL);
             cancelButton->setText(difficult.getName());
             cancelButton->raise();

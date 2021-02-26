@@ -5,6 +5,7 @@
 
 #include <QPushButton>
 #include <QWidget>
+#include <tuple>
 
 #include <model/boss.h>
 
@@ -16,7 +17,7 @@ class BossWidget : public QWidget
 {
     Q_OBJECT
 private slots:
-    void difficultCancelButtonClick();
+    void difficultCancelButtonClick(bool checked);
 public:
     explicit BossWidget(Boss &boss, QWidget *parent = nullptr);
     ~BossWidget();
@@ -24,8 +25,7 @@ public:
 private:
     Ui::BossWidget *ui;
     Boss &bossData;
-    QMap<QString, QPushButton*> difficultButtonMap;
-    QMap<QString, SellasButton*> cancelButtonMap;
+    QMap<QString, std::tuple<QPushButton*, SellasButton*, Boss::Difficult*>> difficultButtonMap;
 };
 
 #endif // BOSSWIDGET_H

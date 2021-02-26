@@ -20,6 +20,9 @@ SOURCES += \
     database/databasemanager.cpp \
     http/requests.cpp \
     model/boss.cpp \
+    model/bossdatasource.cpp \
+    model/character.cpp \
+    model/characterdatasource.cpp \
     model/sellas.cpp \
     model/sellasparser.cpp \
     ui/bossdifficultbutton.cpp \
@@ -32,6 +35,9 @@ HEADERS += \
     database/databasemanager.h \
     http/requests.h \
     model/boss.h \
+    model/bossdatasource.h \
+    model/character.h \
+    model/characterdatasource.h \
     model/sellas.h \
     model/sellasparser.h \
     ui/bossdifficultbutton.h \
