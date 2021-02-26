@@ -142,4 +142,7 @@
         <file>images/ui/button/boss_difficult_cancel/boss_difficult_cancel_disable.png</file>
         <file>images/ui/button/boss_difficult_cancel/boss_difficult_cancel_mouse_over.png</file>
     </qresource>
+    <qresource prefix="/data">
+        <file>data/sellas.json</file>
+    </qresource>
 </RCC>

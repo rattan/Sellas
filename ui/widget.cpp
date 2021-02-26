@@ -17,9 +17,8 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
-SellasParser parser(QFile("sellas.json"));
+    SellasParser parser(QFile(":/data/data/sellas.json"));
     Sellas sellas = parser.parse();
-//    qDebug()<<sellas.toString();
     ui->bossListWidget->horizontalScrollBar()->setSingleStep(243);
     for(auto boss: sellas.getBossList()) {
         QListWidgetItem *it = new QListWidgetItem(ui->bossListWidget);
