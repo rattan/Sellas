@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>279</height>
+    <height>385</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,7 +15,7 @@
   </property>
   <layout class="QFormLayout" name="formLayout">
    <item row="0" column="0">
-    <widget class="QListWidget" name="listWidget">
+    <widget class="QListWidget" name="characterListWidget">
      <property name="maximumSize">
       <size>
        <width>180</width>
@@ -44,9 +44,9 @@
      <property name="movable">
       <bool>true</bool>
      </property>
-     <widget class="QWidget" name="tab">
+     <widget class="QWidget" name="tab_boss">
       <attribute name="title">
-       <string>Page</string>
+       <string>Boss</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout">
        <property name="leftMargin">
@@ -65,7 +65,7 @@
         <number>0</number>
        </property>
        <item row="0" column="0">
-        <widget class="SellasListWidget" name="listWidget_2">
+        <widget class="SellasListWidget" name="bossListWidget">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
            <horstretch>242</horstretch>
@@ -97,7 +97,7 @@
           <bool>false</bool>
          </property>
          <property name="defaultDropAction">
-          <enum>Qt::CopyAction</enum>
+          <enum>Qt::IgnoreAction</enum>
          </property>
          <property name="selectionMode">
           <enum>QAbstractItemView::NoSelection</enum>
@@ -108,16 +108,13 @@
          <property name="flow">
           <enum>QListView::LeftToRight</enum>
          </property>
-         <property name="uniformItemSizes">
-          <bool>true</bool>
-         </property>
         </widget>
        </item>
       </layout>
      </widget>
-     <widget class="QWidget" name="tab_2">
+     <widget class="QWidget" name="tab_union">
       <attribute name="title">
-       <string>Page</string>
+       <string>Union</string>
       </attribute>
      </widget>
     </widget>

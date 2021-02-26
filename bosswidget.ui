@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>BossListWidget</class>
- <widget class="QWidget" name="BossListWidget">
+ <class>BossWidget</class>
+ <widget class="QWidget" name="BossWidget">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -49,14 +49,27 @@
    </property>
    <item row="1" column="0">
     <layout class="QGridLayout" name="gridLayout">
-     <property name="horizontalSpacing">
+     <property name="spacing">
       <number>0</number>
      </property>
-     <property name="verticalSpacing">
-      <number>2</number>
-     </property>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="difficultButton3">
+     <item row="0" column="1">
+      <widget class="SellasButton" name="difficultCancelButton1">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>39</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="difficultButton2">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -74,46 +87,8 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="SellasButton" name="difficultCancelButton1">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>84</width>
-         <height>39</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="SellasButton" name="difficultCancelButton3">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="minimumSize">
-        <size>
-         <width>84</width>
-         <height>39</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>PushButton</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QPushButton" name="difficultButton1">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="difficultButton3">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -145,13 +120,26 @@
          <height>39</height>
         </size>
        </property>
-       <property name="text">
-        <string>PushButton</string>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="SellasButton" name="difficultCancelButton3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>84</width>
+         <height>39</height>
+        </size>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="difficultButton2">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="difficultButton1">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -188,13 +176,6 @@
     </widget>
    </item>
   </layout>
-  <zorder>bossImageLabel</zorder>
-  <zorder>difficultButton1</zorder>
-  <zorder>difficultButton2</zorder>
-  <zorder>difficultButton3</zorder>
-  <zorder>difficultCancelButton2</zorder>
-  <zorder>difficultCancelButton3</zorder>
-  <zorder>difficultCancelButton1</zorder>
  </widget>
  <customwidgets>
   <customwidget>

@@ -8,7 +8,7 @@
 SellasListWidget::SellasListWidget(QObject *parent) : QListWidget(parent)
 {
     animation.setStartValue(0);
-    animation.setEndValue(242);
+    animation.setEndValue(this->horizontalScrollBar()->singleStep());
     animation.setDuration(200);
     animation.setEasingCurve(QEasingCurve::Linear);animation.
     connect(&animation, &QVariantAnimation::valueChanged, this, &SellasListWidget::scrollValueChanged);
@@ -24,7 +24,7 @@ void SellasListWidget::scrollValueChanged(const QVariant &value)
             targetPos += scrollQueue.front();
             scrollQueue.pop_front();
         }
-        animation.setEndValue(242 * targetPos);
+        animation.setEndValue(this->horizontalScrollBar()->singleStep() * targetPos);
     }
 }
 
@@ -49,7 +49,7 @@ void SellasListWidget::wheelEvent(QWheelEvent *event)
             targetPos += scrollQueue.front();
             scrollQueue.pop_front();
         }
-        animation.setEndValue(242 * targetPos);
+        animation.setEndValue(this->horizontalScrollBar()->singleStep() * targetPos);
         animation.start();
     }
     event->accept();

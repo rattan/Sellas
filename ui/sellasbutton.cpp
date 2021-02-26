@@ -70,6 +70,7 @@ void SellasButton::mouseReleaseEvent(QMouseEvent *event)
 SellasButton::SellasButton(QWidget *parent): QAbstractButton(parent)
 {
     this->normal = this->mouseOver = this->click = this->disable = nullptr;
+    this->state = SellasButton::State::NORMAL;
 }
 
 SellasButton::~SellasButton()
@@ -91,7 +92,7 @@ SellasButton::~SellasButton()
 void SellasButton::setImage(const Image &value)
 {
     image = value;
-    update();
+    this->update();
 }
 
 QPixmap *SellasButton::getPixmap(QString postFix)

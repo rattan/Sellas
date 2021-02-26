@@ -41,18 +41,7 @@ QJsonObject Sellas::toJson()
     json.insert("database", QJsonValue(this->database));
     QJsonArray bossArrayObject;
     for(auto boss: this->bossList) {
-        QJsonObject bossObject;
-        bossObject.insert("name", QJsonValue(boss.getName()));
-        bossObject.insert("image", QJsonValue(boss.getImage()));
-        QJsonArray difficultArray;
-        for(auto difficultPair: boss.getDifficulty()) {
-            QJsonArray diff;
-            diff.append(difficultPair.first);
-            diff.append(difficultPair.second);
-            difficultArray.append(diff);
-        }
-        bossObject.insert("difficult", difficultArray);
-        bossArrayObject.append(bossObject);
+        bossArrayObject.append(boss.toJson());
     }
     json.insert("boss", bossArrayObject);
     return json;
