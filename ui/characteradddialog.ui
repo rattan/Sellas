@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLineEdit" name="nameLineEdit">
+  <widget class="SellasLineEdit" name="nameLineEdit">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -126,6 +126,9 @@
    </property>
   </widget>
   <widget class="QPushButton" name="makePushButtom">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -187,6 +190,13 @@
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>SellasLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header location="global">ui/sellaslineedit.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

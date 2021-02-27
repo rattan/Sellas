@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QString>
+#include <QTimer>
 
 #include <model/character.h>
 
@@ -24,6 +25,11 @@ private:
     Ui::CharacterAddDialog *ui;
     QString avatarCache;
     QString avatarWeb;
+    QTimer nameChangeTimer;
+
+private slots:
+    void nameChange(const QString &name);
+    void nameCheck();
 };
 
 #endif // CHARACTERADDDIALOG_H
