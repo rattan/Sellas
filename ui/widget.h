@@ -6,6 +6,8 @@
 
 #include <http/requests.h>
 
+#include <model/characterdatasource.h>
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
@@ -25,5 +27,6 @@ private slots:
 private:
     Ui::Widget *ui;
     Requests req;
+    CharacterDataSource characterDataSource;
 };
 #endif // WIDGET_H

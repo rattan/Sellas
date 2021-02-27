@@ -10,7 +10,7 @@ CharacterDataSource::CharacterDataSource()
 
 void CharacterDataSource::insertCharacter(const Character character)
 {
-    DatabaseManager::getInsetance().query(R"(INSERT INTO "character"("name","server","level","exp","popularity","job","job_detail","guild","avatar_cache","avatar_web") VALUES(:name, :server, :level, :exp, :popularity, :job, :job_detaail, :guild, :avatar_cache, :avatar_web))", this->getCharacterBindValues(character));
+    DatabaseManager::getInsetance().query(R"(INSERT INTO "character"("name","server","level","exp","popularity","job","job_detail","guild","avatar_cache","avatar_web") VALUES(:name, :server, :level, :exp, :popularity, :job, :job_detail, :guild, :avatar_cache, :avatar_web))", this->getCharacterBindValues(character));
 }
 
 Character CharacterDataSource::getCharacter(const QString name)
@@ -38,7 +38,7 @@ void CharacterDataSource::updateCharacter(const QString name, const Character ch
 {
     QMap<QString, QVariant> bindValues = this->getCharacterBindValues(character);
     bindValues.insert(":targetName", name);
-    DatabaseManager::getInsetance().query(R"(UPDATE "character" SET ("name","server","level","exp","popularity","job","job_detail","guild","avatar_cache","avatar_web") VALUES(:name, :server, :level, :exp, :popularity, :job, :job_detaail, :guild, :avatar_cache, :avatar_web) WHERE name= :targetName)");
+    DatabaseManager::getInsetance().query(R"(UPDATE "character" SET ("name","server","level","exp","popularity","job","job_detail","guild","avatar_cache","avatar_web") VALUES(:name, :server, :level, :exp, :popularity, :job, :job_detail, :guild, :avatar_cache, :avatar_web) WHERE name= :targetName)");
 }
 
 void CharacterDataSource::removeCharacter(const QString name)

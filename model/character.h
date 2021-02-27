@@ -10,7 +10,7 @@
 class Character
 {
 public:
-    Character(QString name, QString server, int level, unsigned long long exp, int popularity, QString job, QString jobDetail, QString guild, QString avatarCachel, QString avatarWeb);
+    Character(QString name, QString server, int level, unsigned long long exp, int popularity, QString job, QString jobDetail, QString guild, QString avatarCache, QString avatarWeb);
     Character(const QSqlQuery query);
     QString getName() const;
     QString getServer() const;

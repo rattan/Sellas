@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CharacterAddDialog</class>
+ <widget class="QDialog" name="CharacterAddDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>200</width>
+    <height>362</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLineEdit" name="nameLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>200</y>
+     <width>110</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>닉네임</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="jobComboBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>260</y>
+     <width>85</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>직업</string>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="jobDetailComboBox">
+   <property name="geometry">
+    <rect>
+     <x>105</x>
+     <y>260</y>
+     <width>85</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>전직</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="levelSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>50</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="prefix">
+    <string>Lv.</string>
+   </property>
+   <property name="minimum">
+    <number>1</number>
+   </property>
+   <property name="maximum">
+    <number>300</number>
+   </property>
+  </widget>
+  <widget class="QComboBox" name="serverComboBox">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>200</y>
+     <width>60</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>서버</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="characterImageLabel">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>180</width>
+     <height>180</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>180</width>
+     <height>180</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>180</width>
+     <height>180</height>
+    </size>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="text">
+    <string>Character Image</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="guildLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>105</x>
+     <y>290</y>
+     <width>85</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>길드</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="makePushButtom">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>320</y>
+     <width>85</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>만들기</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelPushButton">
+   <property name="geometry">
+    <rect>
+     <x>105</x>
+     <y>320</y>
+     <width>85</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>취소</string>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="expSpinBox">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>230</y>
+     <width>120</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="prefix">
+    <string>EXP </string>
+   </property>
+   <property name="maximum">
+    <number>0</number>
+   </property>
+  </widget>
+  <widget class="QSpinBox" name="popularitySpinBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>290</y>
+     <width>85</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="prefix">
+    <string>인기도 </string>
+   </property>
+   <property name="minimum">
+    <number>-99999</number>
+   </property>
+   <property name="maximum">
+    <number>99999</number>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

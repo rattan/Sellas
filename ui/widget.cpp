@@ -4,6 +4,8 @@
 #include <QtNetwork>
 #include <QUrl>
 #include <QScrollBar>
+#include <QDialog>
+#include <ui/characteradddialog.h>
 #include <ui/bosswidget.h>
 
 #include <ui/bosslistwidgetitem.h>
@@ -44,9 +46,15 @@ Widget::~Widget()
 void Widget::on_pushButton_clicked()
 {
 
+    CharacterAddDialog characterAddDialog;
 
-    req.get(QNetworkRequest(QUrl("https://www.google.com")), [](QNetworkReply* reply){qDebug()<<reply->readAll();});
+    if (characterAddDialog.exec() == QDialog::Accepted) {
+        qDebug()<<"Accepted";
+        characterDataSource.insertCharacter(characterAddDialog.getCharacter());
+    }
+//    req.get(QNetworkRequest(QUrl("https://www.google.com")), [](QNetworkReply* reply){qDebug()<<reply->readAll();});
     qDebug()<<"END";
+
 }
 
 void Widget::on_character_list_item_clicked(QListWidgetItem *item)

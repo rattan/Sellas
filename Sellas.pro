@@ -25,8 +25,8 @@ SOURCES += \
     model/characterdatasource.cpp \
     model/sellas.cpp \
     model/sellasparser.cpp \
-    ui/bossdifficultbutton.cpp \
     ui/bosswidget.cpp \
+    ui/characteradddialog.cpp \
     ui/sellasbutton.cpp \
     ui/sellaslistwidget.cpp \
     ui/widget.cpp
@@ -40,15 +40,16 @@ HEADERS += \
     model/characterdatasource.h \
     model/sellas.h \
     model/sellasparser.h \
-    ui/bossdifficultbutton.h \
     ui/bosswidget.h \
+    ui/characteradddialog.h \
     ui/sellasbutton.h \
     ui/sellaslistwidget.h \
     ui/widget.h
 
 FORMS += \
-    bosswidget.ui \
-    widget.ui
+    ui/bosswidget.ui \
+    ui/characteradddialog.ui \
+    ui/widget.ui
 
 TRANSLATIONS += \
     Sellas_ko_KR.ts

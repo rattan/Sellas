@@ -21,6 +21,9 @@ void Test::testcode()
 //qDebug()<<req.get(QNetworkRequest(QUrl("https://raw.githubusercontent.com/rattan/hook/master/hook.pro")))->readAll();
 //    SellasParser parser(QFile("sellas.json"));
 
+    CharacterDataSource cds;
+    cds.insertCharacter(Character("a", "b", 1, 2, 3, "f", "g", "h", "i", "j"));
+
 }
 
 QTEST_MAIN(Test)

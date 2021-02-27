@@ -40,6 +40,10 @@ QSqlQuery DatabaseManager::query(const QString queryString, const QMap<QString, 
         query.bindValue(bindValue, bindValues.value(bindValue));
     }
     query.exec();
+    qDebug() << query.executedQuery();
+    qDebug() << query.result();
+    qDebug() << query.size();
+    qDebug() <<query.boundValues();
     return query;
 }
 
