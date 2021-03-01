@@ -24,6 +24,8 @@ public:
     QString getAvatarCache() const;
     QString getAvatarWeb() const;
 
+    QString toString() const;
+
 private:
     QString name;
     QString server;

@@ -77,3 +77,9 @@ QString Character::getAvatarWeb() const
 {
     return avatarWeb;
 }
+
+QString Character::toString() const
+{
+    QString str("name=%1, server=%2, level=%3, exp=%4, popularity=%5, job=%6, job_detail=%7, guild=%8, avatar_cache=%9, avatar_web=%10");
+    return str.arg(name).arg(server).arg(level).arg(exp).arg(popularity).arg(job).arg(jobDetail).arg(guild).arg(avatarCache).arg(avatarWeb);
+}
