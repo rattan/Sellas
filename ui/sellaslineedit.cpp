@@ -10,7 +10,7 @@ SellasLineEdit::SellasLineEdit(QWidget *parent): QLineEdit(parent)
 
 QString SellasLineEdit::text()
 {
-    return QLineEdit::text() + this->inputMethodEventPreeditString;
+    return QLineEdit::text().left(this->cursorPosition()) + this->inputMethodEventPreeditString + QLineEdit::text().mid(this->cursorPosition());
 }
 
 void SellasLineEdit::inputMethodEvent(QInputMethodEvent *e)

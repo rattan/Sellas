@@ -38,6 +38,19 @@ Character CharacterAddDialog::getCharacter()
                      avatarWeb);
 }
 
+void CharacterAddDialog::setCharacterData(Character &character)
+{
+    if(!character.getName().isEmpty()) {
+        ui->nameLineEdit->setText(character.getName());
+        ui->levelSpinBox->setValue(character.getLevel());
+        ui->expSpinBox->setValue(character.getExp());
+        ui->popularitySpinBox->setValue(character.getPopularity());
+        ui->guildLineEdit->setText(character.getGuild());
+        //job, jobdetail
+        ui->characterImageLabel->setPixmap(character.getAvatar());
+    }
+}
+
 void CharacterAddDialog::nameChange(const QString &name)
 {
     ui->makePushButtom->setDisabled(true);
@@ -47,6 +60,18 @@ void CharacterAddDialog::nameChange(const QString &name)
 
 void CharacterAddDialog::nameCheck()
 {
-    qDebug()<<"nameCheck " << ui->nameLineEdit->text();
-    ui->makePushButtom->setEnabled(true);
+    QString targetName = ui->nameLineEdit->text();
+    qDebug()<<"nameCheck " << targetName;
+    Character character = characterDataSource.getCharacter(targetName);
+    if(character.getName().isEmpty()) {
+        character = characterDataSource.getCharacterFromWeb(targetName);
+        if(character.getName().isEmpty()) {
+            // non character;
+        } else {
+            setCharacterData(character);
+        }
+        ui->makePushButtom->setEnabled(true);
+    } else {
+        setCharacterData(character);
+    }
 }

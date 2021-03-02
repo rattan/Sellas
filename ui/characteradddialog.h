@@ -6,6 +6,7 @@
 #include <QTimer>
 
 #include <model/character.h>
+#include <model/characterdatasource.h>
 
 namespace Ui {
 class CharacterAddDialog;
@@ -26,6 +27,9 @@ private:
     QString avatarCache;
     QString avatarWeb;
     QTimer nameChangeTimer;
+    CharacterDataSource characterDataSource;
+
+    void setCharacterData(Character &character);
 
 private slots:
     void nameChange(const QString &name);
