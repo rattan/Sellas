@@ -1,7 +1,7 @@
 #include "character.h"
 
-Character::Character(QString name, QString server, int level, unsigned long long exp, int popularity, QString job, QString jobDetail, QString guild, QString avatarCache, QString avatarWeb):
-    name(name), server(server), level(level), exp(exp), popularity(popularity), job(job), jobDetail(jobDetail), guild(guild), avatarCache(avatarCache), avatarWeb(avatarWeb)
+Character::Character(QString name, QString server, int level, unsigned long long exp, int popularity, QString job, QString jobDetail, QString guild, QPixmap avatar, QString avatarUrl):
+    name(name), server(server), level(level), exp(exp), popularity(popularity), job(job), jobDetail(jobDetail), guild(guild), avatar(avatar), avatarUrl(avatarUrl)
 {
     if(level < 1) level = 1;
     if(level > 300) level = 300;
@@ -19,8 +19,9 @@ Character::Character(const QSqlQuery query)
     this->job = query.value("job").toString();
     this->jobDetail = query.value("job_detail").toString();
     this->guild = query.value("guild").toString();
-    this->avatarCache = query.value("avatar_cache").toString();
-    this->avatarWeb = query.value("avatar_web").toString();
+    this->avatarUrl = query.value("avatar_url").toString();
+    QByteArray avatarArray = query.value("avatar").toByteArray();
+    this->avatar.loadFromData(avatarArray, "png");
 }
 
 QString Character::getName() const
@@ -65,21 +66,16 @@ QString Character::getGuild() const
 
 QPixmap Character::getAvatar()
 {
-    return QPixmap();
+    return avatar;
 }
 
-QString Character::getAvatarCache() const
+QString Character::getAvatarUrl() const
 {
-    return avatarCache;
-}
-
-QString Character::getAvatarWeb() const
-{
-    return avatarWeb;
+    return avatarUrl;
 }
 
 QString Character::toString() const
 {
-    QString str("name=%1, server=%2, level=%3, exp=%4, popularity=%5, job=%6, job_detail=%7, guild=%8, avatar_cache=%9, avatar_web=%10");
-    return str.arg(name).arg(server).arg(level).arg(exp).arg(popularity).arg(job).arg(jobDetail).arg(guild).arg(avatarCache).arg(avatarWeb);
+    QString str("name=%1, server=%2, level=%3, exp=%4, popularity=%5, job=%6, job_detail=%7, guild=%8, avatar_url=%9");
+    return str.arg(name).arg(server).arg(level).arg(exp).arg(popularity).arg(job).arg(jobDetail).arg(guild).arg(avatarUrl);
 }

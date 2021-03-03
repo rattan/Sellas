@@ -2,6 +2,7 @@
 
 #include "database/databasemanager.h"
 
+#include <QBuffer>
 #include <QMap>
 #include <QNetworkReply>
 #include <QRegularExpression>
@@ -16,7 +17,7 @@ CharacterDataSource::CharacterDataSource()
 
 void CharacterDataSource::insertCharacter(const Character character)
 {
-    DatabaseManager::getInsetance().query(R"(INSERT INTO "character"("name","server","level","exp","popularity","job","job_detail","guild","avatar_cache","avatar_web") VALUES(:name, :server, :level, :exp, :popularity, :job, :job_detail, :guild, :avatar_cache, :avatar_web))", this->getCharacterBindValues(character));
+    DatabaseManager::getInsetance().query(R"(INSERT INTO "character"("name","server","level","exp","popularity","job","job_detail","guild","avatar_cache","avatar_web") VALUES(:name, :server, :level, :exp, :popularity, :job, :job_detail, :guild, :avatar, :avatar_url))", this->getCharacterBindValues(character));
 }
 
 Character CharacterDataSource::getCharacter(const QString name)
@@ -27,7 +28,7 @@ Character CharacterDataSource::getCharacter(const QString name)
         qDebug()<<"character found";
         return Character(query);
     }
-    return Character("","",0,0,0,"","","","","");
+    return Character("","",0,0,0,"","","",QPixmap(),"");
 }
 
 Character CharacterDataSource::getCharacterFromWeb(const QString name)
@@ -54,7 +55,7 @@ void CharacterDataSource::updateCharacter(const QString name, const Character ch
 {
     QMap<QString, QVariant> bindValues = this->getCharacterBindValues(character);
     bindValues.insert(":targetName", name);
-    DatabaseManager::getInsetance().query(R"(UPDATE "character" SET ("name","server","level","exp","popularity","job","job_detail","guild","avatar_cache","avatar_web") VALUES(:name, :server, :level, :exp, :popularity, :job, :job_detail, :guild, :avatar_cache, :avatar_web) WHERE name= :targetName)");
+    DatabaseManager::getInsetance().query(R"(UPDATE "character" SET ("name","server","level","exp","popularity","job","job_detail","guild","avatar_cache","avatar_web") VALUES(:name, :server, :level, :exp, :popularity, :job, :job_detail, :guild, :avatar, :avatar_url) WHERE name= :targetName)");
 }
 
 void CharacterDataSource::removeCharacter(const QString name)
@@ -65,6 +66,10 @@ void CharacterDataSource::removeCharacter(const QString name)
 
 const QMap<QString, QVariant> CharacterDataSource::getCharacterBindValues(Character character)
 {
+    QByteArray bArray;
+    QBuffer buffer(&bArray);
+    buffer.open(QIODevice::WriteOnly);
+    character.getAvatar().save(&buffer, "png");
     return QMap<QString, QVariant> {
         {":name", character.getName()},
         {":server", character.getServer()},
@@ -74,8 +79,8 @@ const QMap<QString, QVariant> CharacterDataSource::getCharacterBindValues(Charac
         {":job", character.getJob()},
         {":job_detail", character.getJobDetail()},
         {":guild", character.getGuild()},
-        {":avatar_cache", character.getAvatarCache()},
-        {":avatar_web", character.getAvatarWeb()},
+        {":avatar", bArray},
+        {":avatar_url", character.getAvatarUrl()},
     };
 }
 
@@ -97,16 +102,16 @@ const Character CharacterDataSource::parseCharacterFromWeb(QNetworkReply *reply)
             targetIndex = end + 1;
             qDebug()<<targetString.mid(start, end + 5 - start) << start<<" "<<end;
         }
-        QString name, server, job, jobDetail, guild, avatarWeb;
+        QString name, server, job, jobDetail, guild, avatarUrl;
         int level, exp, popularity;
-        QRegularExpression leftExpression(R"left((?:.|\n)*?<img class="" src="(?<avatar_web>.*?)" (?:.|\n)*?world_icon/icon_(?<server>\d+)\.png" (?:.|\n)*?>(?<name>.*?)</a></dt>(:?.|\n)*?<dd>(?<job>.*?) / (?<job_detail>.*?)</dd>(?:.|\n)*)left");
+        QRegularExpression leftExpression(R"left((?:.|\n)*?<img class="" src="(?<avatar_url>.*?)" (?:.|\n)*?world_icon/icon_(?<server>\d+)\.png" (?:.|\n)*?>(?<name>.*?)</a></dt>(:?.|\n)*?<dd>(?<job>.*?) / (?<job_detail>.*?)</dd>(?:.|\n)*)left");
         QRegularExpressionMatch match = leftExpression.match(tdList.at(1));
         if(match.isValid()) {
             name = match.captured("name");
             server = match.captured("server");
             job = match.captured("job");
             jobDetail = match.captured("job_detail");
-            avatarWeb = match.captured("avatar_web");
+            avatarUrl = match.captured("avatar_url");
         }
         QRegularExpression levelExpression(R"(<td>Lv.(?<level>\d+)</td>)");
         match = levelExpression.match(tdList.at(2));
@@ -127,7 +132,15 @@ const Character CharacterDataSource::parseCharacterFromWeb(QNetworkReply *reply)
         if(match.isValid()) {
             guild = match.captured(1);
         }
-        return Character(name, server, level, exp, popularity, job, jobDetail, guild, "", avatarWeb);
+        return Character(name, server, level, exp, popularity, job, jobDetail, guild, this->getAvatarImage(avatarUrl), avatarUrl);
     }
-    return Character("", "", 0, 0, 0, "", "", "", "", "");
+    return Character("", "", 0, 0, 0, "", "", "", QPixmap(), "");
+}
+
+const QPixmap CharacterDataSource::getAvatarImage(QString avatarUrl)
+{
+    QNetworkReply *reply = this->requests.get(QNetworkRequest(QUrl(avatarUrl)));
+    QPixmap avatarPixmap;
+    avatarPixmap.loadFromData(reply->readAll(), "png");
+    return avatarPixmap;
 }

@@ -24,8 +24,7 @@ public:
 
 private:
     Ui::CharacterAddDialog *ui;
-    QString avatarCache;
-    QString avatarWeb;
+    QString avatarUrl;
     QTimer nameChangeTimer;
     CharacterDataSource characterDataSource;
 

@@ -10,7 +10,7 @@
 class Character
 {
 public:
-    Character(QString name, QString server, int level, unsigned long long exp, int popularity, QString job, QString jobDetail, QString guild, QString avatarCache, QString avatarWeb);
+    Character(QString name, QString server, int level, unsigned long long exp, int popularity, QString job, QString jobDetail, QString guild, QPixmap avatar, QString avatarUrl);
     Character(const QSqlQuery query);
     QString getName() const;
     QString getServer() const;
@@ -21,8 +21,7 @@ public:
     QString getJobDetail() const;
     QString getGuild() const;
     QPixmap getAvatar();
-    QString getAvatarCache() const;
-    QString getAvatarWeb() const;
+    QString getAvatarUrl() const;
 
     QString toString() const;
 
@@ -36,8 +35,8 @@ private:
     QString jobDetail;
     QString guild;
     QString avatarCache;
-    QString avatarWeb;
-    QPixmap *avatar;
+    QString avatarUrl;
+    QPixmap avatar;
 };
 
 #endif // CHARACTER_H

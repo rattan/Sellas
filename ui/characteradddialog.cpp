@@ -34,8 +34,8 @@ Character CharacterAddDialog::getCharacter()
                      ui->jobComboBox->currentText(),
                      ui->jobDetailComboBox->currentText(),
                      ui->guildLineEdit->text(),
-                     avatarCache,
-                     avatarWeb);
+                     ui->characterImageLabel->pixmap(),
+                     avatarUrl);
 }
 
 void CharacterAddDialog::setCharacterData(Character &character)

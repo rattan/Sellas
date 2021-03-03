@@ -24,6 +24,7 @@ public:
 private:
     const QMap<QString, QVariant> getCharacterBindValues(Character character);
     const Character parseCharacterFromWeb(QNetworkReply* reply);
+    const QPixmap getAvatarImage(QString avatarUrl);
 
     Requests requests;
 };
