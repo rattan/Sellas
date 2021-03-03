@@ -48,6 +48,7 @@ void CharacterAddDialog::setCharacterData(Character &character)
         ui->guildLineEdit->setText(character.getGuild());
         //job, jobdetail
         ui->characterImageLabel->setPixmap(character.getAvatar());
+        this->avatarUrl = character.getAvatarUrl();
     }
 }
 
