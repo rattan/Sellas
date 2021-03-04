@@ -28,7 +28,7 @@ Character CharacterDataSource::getCharacter(const QString name)
         qDebug()<<"character found";
         return Character(query);
     }
-    return Character("","",0,0,0,"","","",QPixmap(),"");
+    return Character::getNoDataCharacter();
 }
 
 Character CharacterDataSource::getCharacterFromWeb(const QString name)
@@ -134,7 +134,7 @@ const Character CharacterDataSource::parseCharacterFromWeb(QNetworkReply *reply)
         }
         return Character(name, server, level, exp, popularity, job, jobDetail, guild, this->getAvatarImage(avatarUrl), avatarUrl);
     }
-    return Character("", "", 0, 0, 0, "", "", "", QPixmap(), "");
+    return Character::getNoDataCharacter();
 }
 
 const QPixmap CharacterDataSource::getAvatarImage(QString avatarUrl)

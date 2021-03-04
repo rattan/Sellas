@@ -24,6 +24,8 @@ Character::Character(const QSqlQuery query)
     this->avatar.loadFromData(avatarArray, "png");
 }
 
+//const Character Character::CAHRACTER_NODATA = Character("", "", 0, 0, 0, "", "", "", QPixmap(0, 0), "");
+
 QString Character::getName() const
 {
     return name;
@@ -64,7 +66,7 @@ QString Character::getGuild() const
     return guild;
 }
 
-QPixmap Character::getAvatar()
+QPixmap Character::getAvatar() const
 {
     return avatar;
 }
@@ -78,4 +80,9 @@ QString Character::toString() const
 {
     QString str("name=%1, server=%2, level=%3, exp=%4, popularity=%5, job=%6, job_detail=%7, guild=%8, avatar_url=%9");
     return str.arg(name).arg(server).arg(level).arg(exp).arg(popularity).arg(job).arg(jobDetail).arg(guild).arg(avatarUrl);
+}
+
+Character::Character()
+{
+
 }

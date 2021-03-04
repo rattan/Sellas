@@ -20,12 +20,17 @@ public:
     QString getJob() const;
     QString getJobDetail() const;
     QString getGuild() const;
-    QPixmap getAvatar();
+    QPixmap getAvatar() const;
     QString getAvatarUrl() const;
-
     QString toString() const;
 
+    static const Character& getNoDataCharacter() {
+        static const Character c;
+        return c;
+    }
+
 private:
+    Character();
     QString name;
     QString server;
     int level;
