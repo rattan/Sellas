@@ -7,6 +7,7 @@
 #include <http/requests.h>
 
 #include <model/characterdatasource.h>
+#include <model/sellas.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -28,5 +29,6 @@ private:
     Ui::Widget *ui;
     Requests req;
     CharacterDataSource characterDataSource;
+    Sellas sellas;
 };
 #endif // WIDGET_H

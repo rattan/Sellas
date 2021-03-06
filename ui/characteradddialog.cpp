@@ -2,7 +2,9 @@
 #include "ui_characteradddialog.h"
 
 #include <QCompleter>
+#include <QIcon>
 #include <QLineEdit>
+#include <QPainter>
 
 CharacterAddDialog::CharacterAddDialog(QDialog *parent) :
     QDialog(parent),
@@ -38,6 +40,14 @@ Character CharacterAddDialog::getCharacter()
                      avatarUrl);
 }
 
+void CharacterAddDialog::setServers(const QList<Server> &serverList)
+{
+    this->ui->serverComboBox->clear();
+    for(auto server: serverList) {
+        this->ui->serverComboBox->addItem(QIcon(server.getImagePixmap()), server.getName());
+    }
+}
+
 void CharacterAddDialog::setCharacterData(Character &character)
 {
     if(!character.getName().isEmpty()) {
@@ -48,7 +58,13 @@ void CharacterAddDialog::setCharacterData(Character &character)
         ui->guildLineEdit->setText(character.getGuild());
         //job, jobdetail
         QPixmap avatar = character.getAvatar();
-        ui->characterImageLabel->setPixmap(avatar.scaled(180, 180,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+       QIcon icon(avatar);
+       QPainter p;
+       p.setRenderHint(QPainter::Antialiasing,true);
+       p.setRenderHint(QPainter::SmoothPixmapTransform,true);
+       p.setRenderHint(QPainter::LosslessImageRendering,true);
+       icon.paint(&p, 0,0,180,180);
+        ui->characterImageLabel->setPixmap(icon.pixmap(180,180));
 
         this->avatarUrl = character.getAvatarUrl();
     }

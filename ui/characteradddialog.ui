@@ -76,7 +76,7 @@
     <rect>
      <x>130</x>
      <y>200</y>
-     <width>60</width>
+     <width>61</width>
      <height>22</height>
     </rect>
    </property>
@@ -84,7 +84,7 @@
     <string>서버</string>
    </property>
   </widget>
-  <widget class="QLabel" name="characterImageLabel">
+  <widget class="SellasLabel" name="characterImageLabel">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -201,6 +201,11 @@
    <class>SellasLineEdit</class>
    <extends>QLineEdit</extends>
    <header location="global">ui/sellaslineedit.h</header>
+  </customwidget>
+  <customwidget>
+   <class>SellasLabel</class>
+   <extends>QLabel</extends>
+   <header location="global">ui/sellaslabel.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

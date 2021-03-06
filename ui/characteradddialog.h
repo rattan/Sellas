@@ -7,6 +7,7 @@
 
 #include <model/character.h>
 #include <model/characterdatasource.h>
+#include <model/server.h>
 
 namespace Ui {
 class CharacterAddDialog;
@@ -21,6 +22,8 @@ public:
     ~CharacterAddDialog();
 
     Character getCharacter();
+
+    void setServers(const QList<Server> &serverList);
 
 private:
     Ui::CharacterAddDialog *ui;

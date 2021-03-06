@@ -17,8 +17,8 @@ public:
     }
     int getIndex() const;
     QString getName() const;
-    QPixmap getIcon() const;
-    QPixmap getIconPixmap() const;
+    QPixmap getImage() const;
+    QPixmap getImagePixmap() const;
     QJsonObject toJson() const;
 
 protected:
@@ -27,8 +27,8 @@ protected:
 private:
     int index;
     QString name;
-    QString icon;
-    QPixmap iconPixmap;
+    QString image;
+    QPixmap imagePixmap;
 };
 
 #endif // SERVER_H

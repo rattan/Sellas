@@ -16,11 +16,10 @@
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent)
-    , ui(new Ui::Widget)
+    , ui(new Ui::Widget),
+      sellas(SellasParser(QFile(":/data/data/sellas.json")).parse())
 {
     ui->setupUi(this);
-    SellasParser parser(QFile(":/data/data/sellas.json"));
-    Sellas sellas = parser.parse();
     ui->bossListWidget->horizontalScrollBar()->setSingleStep(243);
     for(auto boss: sellas.getBossList()) {
         QListWidgetItem *it = new QListWidgetItem(ui->bossListWidget);
@@ -47,6 +46,7 @@ void Widget::on_pushButton_clicked()
 {
 
     CharacterAddDialog characterAddDialog;
+    characterAddDialog.setServers(sellas.getServerList());
 
     if (characterAddDialog.exec() == QDialog::Accepted) {
         qDebug()<<"Accepted";
