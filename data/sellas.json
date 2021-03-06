@@ -550,5 +550,190 @@
                 }
             ]
         }
+    ],
+    "server":[
+        {
+            "index": 2,
+            "name": "리부트2",
+            "image": ":/images/character/server/images/character/server/server_icon_reboot2.png"
+        },
+        {
+            "index": 3,
+            "name": "리부트",
+            "image": ":/images/character/server/images/character/server/server_icon_reboot.png"
+        },
+        {
+            "index": 4,
+            "name": "오로라",
+            "image": ":/images/character/server/images/character/server/server_icon_aurora.png"
+        },
+        {
+            "index": 5,
+            "name": "레드",
+            "image": ":/images/character/server/images/character/server/server_icon_red.png"
+        },
+        {
+            "index": 6,
+            "name": "이노시스",
+            "image": ":/images/character/server/images/character/server/server_icon_inosys.png"
+        },
+        {
+            "index": 7,
+            "name": "유니온",
+            "image": ":/images/character/server/images/character/server/server_icon_union.png"
+        },
+        {
+            "index": 8,
+            "name": "스카니아",
+            "image": ":/images/character/server/images/character/server/server_icon_scania.png"
+        },
+        {
+            "index": 9,
+            "name": "루나",
+            "image": ":/images/character/server/images/character/server/server_icon_luna.png"
+        },
+        {
+            "index": 10,
+            "name": "제니스",
+            "image": ":/images/character/server/images/character/server/server_icon_zenith.png"
+        },
+        {
+            "index": 11,
+            "name": "크로아",
+            "image": ":/images/character/server/images/character/server/server_icon_croa.png"
+        },
+        {
+            "index": 12,
+            "name": "베라",
+            "image": ":/images/character/server/images/character/server/server_icon_bera.png"
+        },
+        {
+            "index": 13,
+            "name": "엘리시움",
+            "image": ":/images/character/server/images/character/server/server_icon_elysium.png"
+        },
+        {
+            "index": 14,
+            "name": "아케인",
+            "image": ":/images/character/server/images/character/server/server_icon_arcane.png"
+        },
+        {
+            "index": 15,
+            "name": "노바",
+            "image": ":/images/character/server/images/character/server/server_icon_nova.png"
+        },
+        {
+            "index": 16,
+            "name": "버닝",
+            "image": ":/images/character/server/images/character/server/server_icon_burning.png"
+        },
+        {
+            "index": 17,
+            "name": "버닝2",
+            "image": ":/images/character/server/images/character/server/server_icon_burning2.png"
+        },
+        {
+            "index": 18,
+            "name": "버닝3",
+            "image": ":/images/character/server/images/character/server/server_icon_burning3.png"
+        }
+    ],
+    "job": [
+        {
+            "name": "초보자",
+            "job_detail":["초보자"]
+        },
+        {
+            "name": "전사",
+            "job_detail":["검사", "파이터", "페이지", "스피어맨", "크루세이더", "나이트", "버서커", "히어로", "팔라딘", "다크나이트"]
+        },
+        {
+            "name": "마법사",
+            "job_detail":["매지션", "위자드(불,독)", "위자드(썬,콜)", "클레릭", "메이지(불,독)", "메이지(썬,콜)", "프리스트", "아크메이지(불,독)", "아크메이지(썬,콜)", "비숍"]
+        },
+        {
+            "name": "궁수",
+            "job_detail":["아처", "헌터", "사수", "레인저", "저격수", "보우마스터", "신궁", "아처(패스파인더)", "에인션트아처", "체이서", "패스파인더"]
+        },
+        {
+            "name": "도적",
+            "job_detail":["로그", "어쌔신", "시프", "허밋", "시프마스터", "나이트로드", "섀도어", "세미듀어러", "듀어러", "듀얼마스터", "슬래셔", "듀얼블레이더"]
+        },
+        {
+            "name": "해적",
+            "job_detail":["해적", "인파이터", "건슬링거", "캐논슈터", "버커니어", "발키리", "캐논블래스터", "바이퍼", "캡틴", "캐논마스터"]
+        },
+        {
+            "name": "기사단",
+            "job_detail":["노블레스", "소울마스터", "플레임위자드", "윈드브레이커", "나이트워커", "스트라이커", "미하일"]
+        },
+        {
+            "name": "아란",
+            "job_detail":["아란"]
+        },
+        {
+            "name": "에반",
+            "job_detail":["에반"]
+        },
+        {
+            "name": "레지스탕스",
+            "job_detail":["시티즌", "배틀메이지", "와일드헌터", "메카닉", "데몬들레이어", "데몬어벤져", "제논", "블래스터"]
+        },
+        {
+            "name": "메르세데스",
+            "job_detail":["메르세데스"]
+        },
+        {
+            "name": "팬텀",
+            "job_detail":["팬텀"]
+        },
+        {
+            "name": "루미너스",
+            "job_detail":["루미너스"]
+        },
+        {
+            "name": "카이저",
+            "job_detail":["카이저"]
+        },
+        {
+            "name": "엔젤릭버스터",
+            "job_detail":["엔젤릭버스터"]
+        },
+        {
+            "name": "제로",
+            "job_detail":["제로"]
+        },
+        {
+            "name": "은월",
+            "job_detail":["은월"]
+        },
+        {
+            "name": "키네시스",
+            "job_detail":["키네시스"]
+        },
+        {
+            "name": "카데나",
+            "job_detail":["카데나"]
+        },
+        {
+            "name": "일리움",
+            "job_detail":["일리움"]
+        },
+        {
+            "name": "아크",
+            "job_detail":["아크"]
+        },
+        {
+            "name": "호영",
+            "job_detail":["호영"]
+        },
+        {
+            "name": "아델",
+            "job_detail":["아델"]
+        },
+        {
+            "name": "카인",
+            "job_detail":["카인"]
+        }
     ]
 }

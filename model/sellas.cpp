@@ -23,7 +23,17 @@ QString Sellas::getName() const
     return name;
 }
 
-Sellas::Sellas(QJsonObject json)
+QList<Server> Sellas::getServerList() const
+{
+    return serverList;
+}
+
+QList<QPair<QString, QList<QString> > > Sellas::getJobList() const
+{
+    return jobList;
+}
+
+void Sellas::initFromJson(QJsonObject json)
 {
     this->name = json.value("name").toString();
     this->version = json.value("version").toString();
@@ -31,23 +41,46 @@ Sellas::Sellas(QJsonObject json)
     for(auto boss: json.value("boss").toArray()) {
         bossList.append(Boss(boss.toObject()));
     }
-}
-
-QJsonObject Sellas::toJson()
-{
-    QJsonObject json;
-    json.insert("name", QJsonValue(this->name));
-    json.insert("version", QJsonValue(this->version));
-    json.insert("database", QJsonValue(this->database));
-    QJsonArray bossArrayObject;
-    for(auto boss: this->bossList) {
-        bossArrayObject.append(boss.toJson());
+    for(auto server: json.value("server").toArray()) {
+        serverList.append(Server(server.toObject()));
     }
-    json.insert("boss", bossArrayObject);
-    return json;
+    for(auto job: json.value("job").toArray()) {
+        auto jobObj = job.toObject();
+        QList<QString> jobDetailList;
+        for(auto jobDetail: jobObj.value("job_detail").toArray()) {
+            jobDetailList.append(jobDetail.toString());
+        }
+        this->jobList.append(QPair<QString, QList<QString>>(jobObj.value("name").toString(), jobDetailList));
+    }
 }
 
-QString Sellas::toString()
+QJsonObject Sellas::toJson() const
 {
-    return QJsonDocument(this->toJson()).toJson(QJsonDocument::Compact);
+    QJsonObject sellasObject;
+    sellasObject.insert("name", QJsonValue(this->name));
+    sellasObject.insert("version", QJsonValue(this->version));
+    sellasObject.insert("database", QJsonValue(this->database));
+    QJsonArray bossArray;
+    for(auto boss: this->bossList) {
+        bossArray.append(boss.toJson());
+    }
+    sellasObject.insert("boss", bossArray);
+    QJsonArray serverArray;
+    for(auto server: this->serverList) {
+        serverArray.append(server.toJson());
+    }
+    sellasObject.insert("server", serverArray);
+    QJsonArray jobArray;
+    for(auto job: this->jobList) {
+        QJsonObject jobObject;
+        jobObject.insert("name", job.first);
+        QJsonArray jobDetailArray;
+        for(auto jobDetail: job.second) {
+            jobDetailArray.append(jobDetail);
+        }
+        jobObject.insert("job_detail", jobDetailArray);
+    }
+    sellasObject.insert("job", jobArray);
+
+    return sellasObject;
 }

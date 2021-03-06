@@ -1,14 +1,17 @@
 #ifndef BOSS_H
 #define BOSS_H
 
+#include "uidata.h"
+
 #include <QJsonObject>
 #include <QList>
 #include <QPair>
 #include <QPixmap>
 #include <QString>
 
-class Boss
+class Boss: public UiData
 {
+    using UiData::UiData;
 public:
     class Difficult {
     private:
@@ -30,8 +33,14 @@ public:
         QList<QString> clearShare;
     };
 
-    Boss(QJsonObject json);
-    ~Boss();
+    Boss(QJsonObject json): imagePixmap(nullptr) {
+        initFromJson(json);
+    }
+    ~Boss() {
+        if(this->imagePixmap != nullptr) {
+            delete this->imagePixmap;
+        }
+    }
     QString getName() const;
     QString getImage() const;
     QPixmap getImagePixmap();
@@ -39,13 +48,14 @@ public:
     QList<Difficult> getDifficultList() const;
     QJsonObject toJson() const;
 
+protected:
+    void initFromJson(QJsonObject json);
+
 private:
     QString name;
     QString image;
     QPixmap *imagePixmap;
     QList<Difficult> difficultList;
-
-    void initFromJson(QJsonObject json);
 
 };
 

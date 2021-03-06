@@ -25,6 +25,8 @@ SOURCES += \
     model/characterdatasource.cpp \
     model/sellas.cpp \
     model/sellasparser.cpp \
+    model/server.cpp \
+    model/uidata.cpp \
     ui/bosswidget.cpp \
     ui/characteradddialog.cpp \
     ui/sellasbutton.cpp \
@@ -41,6 +43,8 @@ HEADERS += \
     model/characterdatasource.h \
     model/sellas.h \
     model/sellasparser.h \
+    model/server.h \
+    model/uidata.h \
     ui/bosswidget.h \
     ui/characteradddialog.h \
     ui/sellasbutton.h \

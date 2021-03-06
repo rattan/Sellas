@@ -108,8 +108,14 @@
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
    </property>
+   <property name="lineWidth">
+    <number>0</number>
+   </property>
    <property name="text">
     <string>Character Image</string>
+   </property>
+   <property name="indent">
+    <number>0</number>
    </property>
   </widget>
   <widget class="QLineEdit" name="guildLineEdit">

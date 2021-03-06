@@ -47,7 +47,9 @@ void CharacterAddDialog::setCharacterData(Character &character)
         ui->popularitySpinBox->setValue(character.getPopularity());
         ui->guildLineEdit->setText(character.getGuild());
         //job, jobdetail
-        ui->characterImageLabel->setPixmap(character.getAvatar());
+        QPixmap avatar = character.getAvatar();
+        ui->characterImageLabel->setPixmap(avatar.scaled(180, 180,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+
         this->avatarUrl = character.getAvatarUrl();
     }
 }

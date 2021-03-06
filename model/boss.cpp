@@ -75,19 +75,6 @@ QJsonObject Boss::toJson() const
     return bossObject;
 }
 
-Boss::Boss(QJsonObject json)
-{
-    initFromJson(json);
-    this->imagePixmap = nullptr;
-}
-
-Boss::~Boss()
-{
-    if(this->imagePixmap) {
-        delete this->imagePixmap;
-    }
-}
-
 Boss::Difficult::Difficult(QString name, QString cycle, int min_level, int max_level, QList<QString> clearShare):
     name(name), cycle(cycle), min_level(min_level), max_level(max_level), clearShare(clearShare)
 {

@@ -145,4 +145,23 @@
     <qresource prefix="/data">
         <file>data/sellas.json</file>
     </qresource>
+    <qresource prefix="/images/character/server">
+        <file>images/character/server/server_icon_arcane.png</file>
+        <file>images/character/server/server_icon_aurora.png</file>
+        <file>images/character/server/server_icon_bera.png</file>
+        <file>images/character/server/server_icon_burning.png</file>
+        <file>images/character/server/server_icon_burning2.png</file>
+        <file>images/character/server/server_icon_burning3.png</file>
+        <file>images/character/server/server_icon_croa.png</file>
+        <file>images/character/server/server_icon_elysium.png</file>
+        <file>images/character/server/server_icon_inosys.png</file>
+        <file>images/character/server/server_icon_luna.png</file>
+        <file>images/character/server/server_icon_nova.png</file>
+        <file>images/character/server/server_icon_reboot.png</file>
+        <file>images/character/server/server_icon_reboot2.png</file>
+        <file>images/character/server/server_icon_red.png</file>
+        <file>images/character/server/server_icon_scania.png</file>
+        <file>images/character/server/server_icon_union.png</file>
+        <file>images/character/server/server_icon_zenith.png</file>
+    </qresource>
 </RCC>
