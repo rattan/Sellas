@@ -33,6 +33,7 @@ SOURCES += \
     ui/sellasimagewidget.cpp \
     ui/sellaslineedit.cpp \
     ui/sellaslistwidget.cpp \
+    ui/sellasspinbox.cpp \
     ui/widget.cpp
 
 HEADERS += \
@@ -52,6 +53,7 @@ HEADERS += \
     ui/sellasimagewidget.h \
     ui/sellaslineedit.h \
     ui/sellaslistwidget.h \
+    ui/sellasspinbox.h \
     ui/widget.h
 
 FORMS += \
