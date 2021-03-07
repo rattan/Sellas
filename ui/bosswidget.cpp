@@ -43,7 +43,7 @@ BossWidget::BossWidget(Boss &boss, QWidget *parent) :
             cancelButton->setVisible(true);
         }
     }
-    ui->bossImageLabel->setPixmap(bossData.getImagePixmap());
+    ui->bossImageWidget->setPixmap(bossData.getImagePixmap());
 }
 
 BossWidget::~BossWidget()

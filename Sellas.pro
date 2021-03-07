@@ -30,7 +30,7 @@ SOURCES += \
     ui/bosswidget.cpp \
     ui/characteradddialog.cpp \
     ui/sellasbutton.cpp \
-    ui/sellaslabel.cpp \
+    ui/sellasimagewidget.cpp \
     ui/sellaslineedit.cpp \
     ui/sellaslistwidget.cpp \
     ui/widget.cpp
@@ -49,7 +49,7 @@ HEADERS += \
     ui/bosswidget.h \
     ui/characteradddialog.h \
     ui/sellasbutton.h \
-    ui/sellaslabel.h \
+    ui/sellasimagewidget.h \
     ui/sellaslineedit.h \
     ui/sellaslistwidget.h \
     ui/widget.h

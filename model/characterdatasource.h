@@ -2,7 +2,9 @@
 #define CHARACTERDATASOURCE_H
 
 #include "character.h"
+#include "sellas.h"
 
+#include <QMap>
 #include <QString>
 
 #include <http/requests.h>
@@ -27,6 +29,7 @@ private:
     const QPixmap getAvatarImage(QString avatarUrl);
 
     Requests requests;
+    QMap<int, QString> serverIndexMap;
 };
 
 #endif // CHARACTERDATASOURCE_H

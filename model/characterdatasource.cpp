@@ -87,11 +87,28 @@ const QMap<QString, QVariant> CharacterDataSource::getCharacterBindValues(Charac
 const Character CharacterDataSource::parseCharacterFromWeb(QNetworkReply *reply)
 {
     QString resultString = reply->readAll();
+
+    if(this->serverIndexMap.empty()) {
+        int worldIndex = resultString.indexOf(R"(<th>월드</th>)");
+        if(worldIndex > 0) {
+            QString targetString = resultString.mid(worldIndex);
+            targetString = targetString.left(targetString.indexOf(R"(</td>)"));
+            QStringList targetStringList = targetString.split(QRegularExpression(R"((\r)?\n)"));
+            QRegularExpression serverExpression(R"server(.*?<img src="https://ssl.nx.com/s2/game/maplestory/renewal/common/world_icon/icon_(?<index>\d+)\.png" alt="(?<name>.*?)" />.*)server");
+            for(auto targetLine: targetStringList) {
+                QRegularExpressionMatch match = serverExpression.match(targetLine);
+                if(match.isValid()) {
+                    this->serverIndexMap.insert(match.captured("index").toInt(), match.captured("name"));
+                }
+            }
+            qDebug()<<"serverIndexMap"<<serverIndexMap;
+        }
+    }
+
     int searchComChkIndex = resultString.indexOf(R"(<tr class="search_com_chk">)");
     if(searchComChkIndex > 0) {
         QString targetString = resultString.mid(searchComChkIndex);
         targetString = targetString.left(targetString.indexOf(R"(</tr>)") + 5);
-        qDebug()<<targetString;
         QStringList tdList;
         int targetIndex = 0;
         while(true) {
@@ -100,7 +117,6 @@ const Character CharacterDataSource::parseCharacterFromWeb(QNetworkReply *reply)
             if(start == -1 || end == -1) break;
             tdList.append(targetString.mid(start, end + 5 - start));
             targetIndex = end + 1;
-            qDebug()<<targetString.mid(start, end + 5 - start) << start<<" "<<end;
         }
         QString name, server, job, jobDetail, guild, avatarUrl;
         int level, exp, popularity;
@@ -108,7 +124,7 @@ const Character CharacterDataSource::parseCharacterFromWeb(QNetworkReply *reply)
         QRegularExpressionMatch match = leftExpression.match(tdList.at(1));
         if(match.isValid()) {
             name = match.captured("name");
-            server = match.captured("server");
+            server = this->serverIndexMap[match.captured("server").toInt()];
             job = match.captured("job");
             jobDetail = match.captured("job_detail");
             avatarUrl = match.captured("avatar_url");

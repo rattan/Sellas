@@ -84,40 +84,6 @@
     <string>서버</string>
    </property>
   </widget>
-  <widget class="SellasLabel" name="characterImageLabel">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>10</y>
-     <width>180</width>
-     <height>180</height>
-    </rect>
-   </property>
-   <property name="minimumSize">
-    <size>
-     <width>180</width>
-     <height>180</height>
-    </size>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>180</width>
-     <height>180</height>
-    </size>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="lineWidth">
-    <number>0</number>
-   </property>
-   <property name="text">
-    <string>Character Image</string>
-   </property>
-   <property name="indent">
-    <number>0</number>
-   </property>
-  </widget>
   <widget class="QLineEdit" name="guildLineEdit">
    <property name="geometry">
     <rect>
@@ -195,6 +161,16 @@
     <number>99999</number>
    </property>
   </widget>
+  <widget class="SellasImageWidget" name="characterImageWidget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>180</width>
+     <height>180</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <customwidgets>
   <customwidget>
@@ -203,9 +179,10 @@
    <header location="global">ui/sellaslineedit.h</header>
   </customwidget>
   <customwidget>
-   <class>SellasLabel</class>
-   <extends>QLabel</extends>
-   <header location="global">ui/sellaslabel.h</header>
+   <class>SellasImageWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">ui/sellasimagewidget.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
  <resources/>

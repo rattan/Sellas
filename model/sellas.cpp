@@ -38,11 +38,16 @@ void Sellas::initFromJson(QJsonObject json)
     this->name = json.value("name").toString();
     this->version = json.value("version").toString();
     this->database = json.value("database").toString();
-    for(auto boss: json.value("boss").toArray()) {
-        bossList.append(Boss(boss.toObject()));
+
+    bossList.clear();
+    for(auto bossObject: json.value("boss").toArray()) {
+        bossList.append(Boss(bossObject.toObject()));
     }
-    for(auto server: json.value("server").toArray()) {
-        serverList.append(Server(server.toObject()));
+
+    serverList.clear();
+    for(auto serverObject: json.value("server").toArray()) {
+        Server server(serverObject.toObject());
+        serverList.append(server);
     }
     for(auto job: json.value("job").toArray()) {
         auto jobObj = job.toObject();

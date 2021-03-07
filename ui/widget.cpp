@@ -15,9 +15,9 @@
 
 
 Widget::Widget(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::Widget),
-      sellas(SellasParser(QFile(":/data/data/sellas.json")).parse())
+    : QWidget(parent),
+    ui(new Ui::Widget),
+    sellas(SellasParser(QFile(":/data/data/sellas.json")).parse())
 {
     ui->setupUi(this);
     ui->bossListWidget->horizontalScrollBar()->setSingleStep(243);
@@ -44,17 +44,12 @@ Widget::~Widget()
 
 void Widget::on_pushButton_clicked()
 {
-
-    CharacterAddDialog characterAddDialog;
-    characterAddDialog.setServers(sellas.getServerList());
+    CharacterAddDialog characterAddDialog(sellas);
 
     if (characterAddDialog.exec() == QDialog::Accepted) {
         qDebug()<<"Accepted";
         characterDataSource.insertCharacter(characterAddDialog.getCharacter());
     }
-//    req.get(QNetworkRequest(QUrl("https://www.google.com")), [](QNetworkReply* reply){qDebug()<<reply->readAll();});
-    qDebug()<<"END";
-
 }
 
 void Widget::on_character_list_item_clicked(QListWidgetItem *item)
