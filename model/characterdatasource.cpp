@@ -6,6 +6,7 @@
 #include <QMap>
 #include <QNetworkReply>
 #include <QRegularExpression>
+#include <QSqlRecord>
 #include <QStack>
 #include <QTextDocument>
 #include <QUrl>
@@ -43,9 +44,9 @@ Character CharacterDataSource::getCharacterFromWeb(const QString name)
 
 QList<Character> CharacterDataSource::getAllCharacters()
 {
-    QSqlQuery query = DatabaseManager::getInsetance().query(R"(SELECT * FROM "character")");
+    QSqlQuery query = DatabaseManager::getInsetance().query(R"(SELECT * FROM "main"."character")");
     QList<Character> characterList;
-    if(query.next()) {
+    while(query.next()) {
         characterList.append(Character(query));
     }
     return characterList;

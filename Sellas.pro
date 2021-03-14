@@ -29,6 +29,7 @@ SOURCES += \
     model/uidata.cpp \
     ui/bosswidget.cpp \
     ui/characteradddialog.cpp \
+    ui/characterwidget.cpp \
     ui/sellasbutton.cpp \
     ui/sellasimagewidget.cpp \
     ui/sellaslineedit.cpp \
@@ -49,6 +50,7 @@ HEADERS += \
     model/uidata.h \
     ui/bosswidget.h \
     ui/characteradddialog.h \
+    ui/characterwidget.h \
     ui/sellasbutton.h \
     ui/sellasimagewidget.h \
     ui/sellaslineedit.h \
@@ -59,6 +61,7 @@ HEADERS += \
 FORMS += \
     ui/bosswidget.ui \
     ui/characteradddialog.ui \
+    ui/characterwidget.ui \
     ui/widget.ui
 
 TRANSLATIONS += \

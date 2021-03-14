@@ -16,11 +16,20 @@
   <layout class="QGridLayout" name="gridLayout_2">
    <item row="0" column="0">
     <widget class="QListWidget" name="characterListWidget">
+     <property name="minimumSize">
+      <size>
+       <width>180</width>
+       <height>0</height>
+      </size>
+     </property>
      <property name="maximumSize">
       <size>
        <width>180</width>
        <height>16777215</height>
       </size>
+     </property>
+     <property name="horizontalScrollBarPolicy">
+      <enum>Qt::ScrollBarAlwaysOff</enum>
      </property>
      <property name="dragDropMode">
       <enum>QAbstractItemView::InternalMove</enum>
@@ -39,7 +48,7 @@
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <property name="movable">
       <bool>true</bool>

@@ -1,10 +1,12 @@
 #include "widget.h"
 #include "ui_widget.h"
+#include "characterwidget.h"
 
 #include <QtNetwork>
 #include <QUrl>
 #include <QScrollBar>
 #include <QDialog>
+#include <ui_characterwidget.h>
 #include <ui/characteradddialog.h>
 #include <ui/bosswidget.h>
 
@@ -20,6 +22,18 @@ Widget::Widget(QWidget *parent)
     sellas(SellasParser(QFile(":/data/data/sellas.json")).parse())
 {
     ui->setupUi(this);
+
+    initializeUi();
+    initializeLoadData();
+}
+
+Widget::~Widget()
+{
+    delete ui;
+}
+
+void Widget::initializeUi()
+{
     ui->bossListWidget->horizontalScrollBar()->setSingleStep(243);
     for(auto boss: sellas.getBossList()) {
         QListWidgetItem *it = new QListWidgetItem(ui->bossListWidget);
@@ -28,17 +42,19 @@ Widget::Widget(QWidget *parent)
         it->setSizeHint(item->sizeHint());
         ui->bossListWidget->setItemWidget(it, item);
     }
-    for(int i=0;i<5;++i) {
 
-        ui->characterListWidget->addItem(QString::number(i));
-    }
     connect(ui->characterListWidget, &QListWidget::itemClicked, this, &Widget::on_character_list_item_clicked);
-    QPushButton bt;
 }
 
-Widget::~Widget()
+void Widget::initializeLoadData()
 {
-    delete ui;
+    for(auto character: characterDataSource.getAllCharacters()) {
+        QListWidgetItem *it = new QListWidgetItem(ui->characterListWidget);
+        ui->characterListWidget->addItem(it);
+        CharacterWidget *item = new CharacterWidget(character);
+        it->setSizeHint(item->sizeHint());
+        ui->characterListWidget->setItemWidget(it, item);
+    }
 }
 
 

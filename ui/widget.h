@@ -22,6 +22,9 @@ public:
     ~Widget();
 
 private slots:
+    void initializeUi();
+    void initializeLoadData();
+
     void on_pushButton_clicked();
     void on_character_list_item_clicked(QListWidgetItem* item);
 
