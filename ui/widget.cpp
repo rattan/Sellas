@@ -52,6 +52,7 @@ void Widget::initializeLoadData()
         QListWidgetItem *it = new QListWidgetItem(ui->characterListWidget);
         ui->characterListWidget->addItem(it);
         CharacterWidget *item = new CharacterWidget(character);
+        qDebug()<<item;
         it->setSizeHint(item->sizeHint());
         ui->characterListWidget->setItemWidget(it, item);
     }
@@ -70,5 +71,10 @@ void Widget::on_pushButton_clicked()
 
 void Widget::on_character_list_item_clicked(QListWidgetItem *item)
 {
-    qDebug()<<item->text();
+    CharacterWidget *selectedCharacterWidget = static_cast<CharacterWidget*>(ui->characterListWidget->itemWidget(item));
+    qDebug()<<selectedCharacterWidget;
+
+    const Character &character = selectedCharacterWidget->getCharacterData();
+    qDebug()<<character.getName();
+
 }

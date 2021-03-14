@@ -14,12 +14,14 @@ class CharacterWidget : public QWidget
     Q_OBJECT
 
 public:
-    explicit CharacterWidget(const Character &character, QWidget *parent = nullptr);
+    explicit CharacterWidget(Character character, QWidget *parent = nullptr);
     ~CharacterWidget();
+
+    const Character &getCharacterData() const;
 
 private:
     Ui::CharacterWidget *ui;
-    const Character &characterData;
+    Character characterData;
 };
 
 #endif // CHARACTERWIDGET_H
