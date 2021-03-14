@@ -65,7 +65,14 @@ void Widget::on_pushButton_clicked()
 
     if (characterAddDialog.exec() == QDialog::Accepted) {
         qDebug()<<"Accepted";
-        characterDataSource.insertCharacter(characterAddDialog.getCharacter());
+        Character character = characterAddDialog.getCharacter();
+        characterDataSource.insertCharacter(character);
+        QListWidgetItem *it = new QListWidgetItem(ui->characterListWidget);
+        ui->characterListWidget->addItem(it);
+        CharacterWidget *item = new CharacterWidget(character);
+        qDebug()<<item;
+        it->setSizeHint(item->sizeHint());
+        ui->characterListWidget->setItemWidget(it, item);
     }
 }
 
