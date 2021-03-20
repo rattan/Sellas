@@ -30,17 +30,25 @@ Widget::Widget(QWidget *parent)
 Widget::~Widget()
 {
     delete ui;
+
 }
 
 void Widget::initializeUi()
 {
     ui->bossListWidget->horizontalScrollBar()->setSingleStep(243);
-    for(auto boss: sellas.getBossList()) {
+    for(auto &boss: sellas.getBossList()) {
         QListWidgetItem *it = new QListWidgetItem(ui->bossListWidget);
         ui->bossListWidget->addItem(it);
         BossWidget *item = new BossWidget(boss);
         it->setSizeHint(item->sizeHint());
         ui->bossListWidget->setItemWidget(it, item);
+        connect(item, &BossWidget::clearBoss, [&](QString name, QString difficulty){
+            qDebug()<<"clear click";
+            CharacterWidget *selectedCharacterWidget = static_cast<CharacterWidget*>(ui->characterListWidget->itemWidget(ui->characterListWidget->currentItem()));
+            const Character &character = selectedCharacterWidget->getCharacterData();
+            qDebug()<<character.getName();
+            this->bossDataSource.clearBossNow(character.getName(), name, difficulty);
+        });
     }
 
     connect(ui->characterListWidget, &QListWidget::itemClicked, this, &Widget::on_character_list_item_clicked);
@@ -67,6 +75,7 @@ void Widget::on_pushButton_clicked()
         qDebug()<<"Accepted";
         Character character = characterAddDialog.getCharacter();
         characterDataSource.insertCharacter(character);
+        bossDataSource.insertBossesForCharacter(character.getName(), sellas.getBossList());
         QListWidgetItem *it = new QListWidgetItem(ui->characterListWidget);
         ui->characterListWidget->addItem(it);
         CharacterWidget *item = new CharacterWidget(character);

@@ -9,7 +9,7 @@ class UiData
 {
 public:
     virtual QJsonObject toJson() const = 0;
-    QString toString();
+    QString toString() const;
 
 protected:
     virtual void initFromJson(QJsonObject json);

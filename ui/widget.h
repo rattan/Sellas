@@ -6,6 +6,7 @@
 
 #include <http/requests.h>
 
+#include <model/bossdatasource.h>
 #include <model/characterdatasource.h>
 #include <model/sellas.h>
 
@@ -32,6 +33,7 @@ private:
     Ui::Widget *ui;
     Requests req;
     CharacterDataSource characterDataSource;
+    BossDataSource bossDataSource;
     Sellas sellas;
 };
 #endif // WIDGET_H

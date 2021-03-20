@@ -164,4 +164,14 @@
         <file>images/character/server/server_icon_union.png</file>
         <file>images/character/server/server_icon_zenith.png</file>
     </qresource>
+    <qresource prefix="/images/ui/button/boss_difficult">
+        <file>images/ui/button/boss_difficult/boss_difficult_chaos.png</file>
+        <file>images/ui/button/boss_difficult/boss_difficult_chaos_click.png</file>
+        <file>images/ui/button/boss_difficult/boss_difficult_easy.png</file>
+        <file>images/ui/button/boss_difficult/boss_difficult_easy_click.png</file>
+        <file>images/ui/button/boss_difficult/boss_difficult_hard.png</file>
+        <file>images/ui/button/boss_difficult/boss_difficult_hard_click.png</file>
+        <file>images/ui/button/boss_difficult/boss_difficult_normal.png</file>
+        <file>images/ui/button/boss_difficult/boss_difficult_normal_click.png</file>
+    </qresource>
 </RCC>

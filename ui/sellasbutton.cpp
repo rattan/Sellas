@@ -10,7 +10,7 @@ void SellasButton::paintEvent(QPaintEvent *event)
     Q_UNUSED(event);
 
     QPainter painter(this);
-
+    painter.setRenderHint(QPainter::SmoothPixmapTransform, true);
     if(isEnabled())
     {
       switch(state)
@@ -137,7 +137,10 @@ QPixmap *SellasButton::getDisable()
 }
 
 const QMap<SellasButton::Image, QString> SellasButton::imagePathMap{
-    { SellasButton::Image::BOSS_DIFFICULT, "boss" },
+    { SellasButton::Image::BOSS_DIFFICULT_EASY, ":/images/ui/button/boss_difficult/images/ui/button/boss_difficult/boss_difficult_easy" },
+    { SellasButton::Image::BOSS_DIFFICULT_NORMAL, ":/images/ui/button/boss_difficult/images/ui/button/boss_difficult/boss_difficult_normal" },
+    { SellasButton::Image::BOSS_DIFFICULT_HARD, ":/images/ui/button/boss_difficult/images/ui/button/boss_difficult/boss_difficult_hard" },
+    { SellasButton::Image::BOSS_DIFFICULT_CHAOS, ":/images/ui/button/boss_difficult/images/ui/button/boss_difficult/boss_difficult_chaos" },
     { SellasButton::Image::BOSS_DIFFICULT_CANCEL, ":/images/ui/button/boss_difficult_cancel/images/ui/button/boss_difficult_cancel/boss_difficult_cancel"},
 };
 

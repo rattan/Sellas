@@ -20,7 +20,7 @@ public:
     ~SellasButton();
 
     enum class Image {
-        BOSS_DIFFICULT, BOSS_DIFFICULT_CANCEL
+        BOSS_DIFFICULT_EASY, BOSS_DIFFICULT_NORMAL, BOSS_DIFFICULT_HARD, BOSS_DIFFICULT_CHAOS, BOSS_DIFFICULT_CANCEL
     } image;
 
     QPixmap *getPixmap(QString postFix);

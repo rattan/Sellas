@@ -2,9 +2,9 @@
 
 #include <QJsonDocument>
 
-QString UiData::toString()
+QString UiData::toString() const
 {
-    QJsonDocument(this->toJson()).toJson(QJsonDocument::Compact);
+    return QJsonDocument(toJson()).toJson(QJsonDocument::Compact);
 }
 
 void UiData::initFromJson(QJsonObject json)
