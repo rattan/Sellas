@@ -36,7 +36,7 @@ QSqlQuery DatabaseManager::query(const QString queryString, const QMap<QString, 
 {
     QSqlQuery query(database);
     query.prepare(queryString);
-    for(auto bindValue: bindValues.keys()) {
+    for(auto const &bindValue: bindValues.keys()) {
         query.bindValue(bindValue, bindValues.value(bindValue));
     }
     query.exec();

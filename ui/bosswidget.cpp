@@ -9,6 +9,7 @@ void BossWidget::difficultCancelButtonClick(bool checked)
     QString difficult = buttonSender->text();
     qDebug()<<difficult;
     emit clearBossCancel(bossName, difficult);
+    setClear(difficult, false);
 }
 
 void BossWidget::difficultButtonClick(bool checked)
@@ -20,6 +21,7 @@ void BossWidget::difficultButtonClick(bool checked)
     QString difficult = buttonSender->text();
     qDebug()<<difficult;
     emit clearBoss(bossName, difficult);
+    setClear(difficult, true);
 }
 
 BossWidget::BossWidget(Boss &boss, QWidget *parent) :
@@ -28,7 +30,7 @@ BossWidget::BossWidget(Boss &boss, QWidget *parent) :
     bossData(boss)
 {
     ui->setupUi(this);
-    for(auto difficult: bossData.getDifficultList()) {
+    for(auto const &difficult: bossData.getDifficultList()) {
         SellasButton *difficultButton = nullptr;
         SellasButton *cancelButton = nullptr;
         if("easy" == difficult.getName()) {
@@ -50,7 +52,7 @@ BossWidget::BossWidget(Boss &boss, QWidget *parent) :
         }
 
         if(difficultButton != nullptr && cancelButton != nullptr) {
-//            difficultButtonMap.insert(difficult.getName(), std::make_tuple(difficultButton, cancelButton, &difficult));
+            difficultButtonMap.insert(difficult.getName(), ButtonContainer(difficultButton, cancelButton, difficult.getClearShare()));
             difficultButton->setText(difficult.getName());
             difficultButton->raise();
             difficultButton->setVisible(true);
@@ -60,6 +62,7 @@ BossWidget::BossWidget(Boss &boss, QWidget *parent) :
             cancelButton->setText(difficult.getName());
             cancelButton->raise();
             cancelButton->setVisible(true);
+            cancelButton->setDisabled(true);
             connect(cancelButton, &SellasButton::clicked, this, &BossWidget::difficultCancelButtonClick);
         } else {
             difficultButton->setVisible(false);
@@ -69,7 +72,39 @@ BossWidget::BossWidget(Boss &boss, QWidget *parent) :
     ui->bossImageWidget->setPixmap(bossData.getImagePixmap());
 }
 
+void BossWidget::setClear(QString difficult, bool clear)
+{
+    ButtonContainer button = difficultButtonMap.value(difficult, ButtonContainer(nullptr, nullptr, QList<QString>()));
+    setClearImpl(button, clear);
+    for(auto const &shareDifficult: button.getClearShare()) {
+        setClearImpl(difficultButtonMap.value(shareDifficult, ButtonContainer(nullptr, nullptr, QList<QString>())), clear);
+    }
+}
+
 BossWidget::~BossWidget()
 {
     delete ui;
+}
+
+void BossWidget::setClearImpl(ButtonContainer button, bool clear)
+{
+    if(button.getDifficultButton() != nullptr && button.getCancelButton() != nullptr) {
+        button.getDifficultButton()->setDisabled(clear);
+        button.getCancelButton()->setDisabled(!clear);
+    }
+}
+
+SellasButton* BossWidget::ButtonContainer::getDifficultButton() const
+{
+    return difficultButton;
+}
+
+SellasButton* BossWidget::ButtonContainer::getCancelButton() const
+{
+    return cancelButton;
+}
+
+QList<QString> BossWidget::ButtonContainer::getClearShare() const
+{
+    return clearShare;
 }

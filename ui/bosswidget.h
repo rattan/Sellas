@@ -21,6 +21,7 @@ private slots:
     void difficultButtonClick(bool checked);
 public:
     explicit BossWidget(Boss &boss, QWidget *parent = nullptr);
+    void setClear(QString difficult, bool clear);
     ~BossWidget();
 
 signals:
@@ -30,7 +31,23 @@ signals:
 private:
     Ui::BossWidget *ui;
     Boss bossData;
-//    QMap<QString, std::tuple<QPushButton*, SellasButton*, Boss::Difficult*>> difficultButtonMap;
+    class ButtonContainer {
+    private:
+        SellasButton *difficultButton;
+        SellasButton *cancelButton;
+        QList<QString> clearShare;
+    public:
+        ButtonContainer(SellasButton *difficultButton, SellasButton *cancelButton, QList<QString> clearShare):
+            difficultButton(difficultButton), cancelButton(cancelButton), clearShare(clearShare){}
+
+        SellasButton *getDifficultButton() const;
+        SellasButton *getCancelButton() const;
+        QList<QString> getClearShare() const;
+    };
+
+    QMap<QString, ButtonContainer> difficultButtonMap;
+
+    void setClearImpl(ButtonContainer button, bool clear);
 };
 
 #endif // BOSSWIDGET_H
