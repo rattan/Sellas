@@ -9,6 +9,10 @@
 #include <QPixmap>
 #include <QString>
 
+#define CYCLE_DAILY "daily"
+#define CYCLE_WEEKLY "weekly"
+#define CYCLE_MONTHLY "monthly"
+
 class Boss: public UiData
 {
     using UiData::UiData;
@@ -33,20 +37,30 @@ public:
         QList<QString> clearShare;
     };
 
-    Boss(QJsonObject json): imagePixmap(nullptr) {
+    class Clear {
+    public:
+        Clear(QString name, QString difficult, int clearDate):
+            name(name), difficult(difficult), clearDate(clearDate) {}
+        QString getName() const;
+        QString getDifficult() const;
+        int getClearDate() const;
+    private:
+        QString name;
+        QString difficult;
+        int clearDate;
+    };
+
+    Boss(QJsonObject json) {
         initFromJson(json);
-    }
-    ~Boss() {
-        if(this->imagePixmap != nullptr) {
-            delete this->imagePixmap;
-        }
     }
     QString getName() const;
     QString getImage() const;
-    QPixmap getImagePixmap();
+    QPixmap getImagePixmap() const;
     QPixmap getImageGrayScaledPixmap();
     QList<Difficult> getDifficultList() const;
     QJsonObject toJson() const;
+
+    Boss::Difficult findDifficult(QString difficult) const;
 
 protected:
     void initFromJson(QJsonObject json);
@@ -54,8 +68,9 @@ protected:
 private:
     QString name;
     QString image;
-    QPixmap *imagePixmap;
+    QPixmap imagePixmap;
     QList<Difficult> difficultList;
+    QMap<QString, Difficult> difficultMap;
 
 };
 

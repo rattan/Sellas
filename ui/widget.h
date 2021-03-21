@@ -8,6 +8,7 @@
 
 #include <model/bossdatasource.h>
 #include <model/characterdatasource.h>
+#include <model/datedatasource.h>
 #include <model/sellas.h>
 
 QT_BEGIN_NAMESPACE
@@ -27,13 +28,16 @@ private slots:
     void initializeLoadData();
 
     void on_pushButton_clicked();
-    void on_character_list_item_clicked(QListWidgetItem* item);
+    void characterListItemClicked(QListWidgetItem* item);
 
 private:
     Ui::Widget *ui;
     Requests req;
     CharacterDataSource characterDataSource;
     BossDataSource bossDataSource;
+    DateDataSource dateDataSource;
     Sellas sellas;
+    void initializeCharacterListWidget();
+    void initializeBossListWidget();
 };
 #endif // WIDGET_H

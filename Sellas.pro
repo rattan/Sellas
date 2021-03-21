@@ -23,6 +23,7 @@ SOURCES += \
     model/bossdatasource.cpp \
     model/character.cpp \
     model/characterdatasource.cpp \
+    model/datedatasource.cpp \
     model/sellas.cpp \
     model/sellasparser.cpp \
     model/server.cpp \
@@ -44,6 +45,7 @@ HEADERS += \
     model/bossdatasource.h \
     model/character.h \
     model/characterdatasource.h \
+    model/datedatasource.h \
     model/sellas.h \
     model/sellasparser.h \
     model/server.h \

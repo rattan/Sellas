@@ -22,7 +22,10 @@ private slots:
 public:
     explicit BossWidget(Boss &boss, QWidget *parent = nullptr);
     void setClear(QString difficult, bool clear);
+    void clear();
     ~BossWidget();
+
+    Boss getBossData() const;
 
 signals:
     void clearBoss(QString name, QString difficult);
@@ -31,6 +34,7 @@ signals:
 private:
     Ui::BossWidget *ui;
     Boss bossData;
+
     class ButtonContainer {
     private:
         SellasButton *difficultButton;
@@ -46,8 +50,6 @@ private:
     };
 
     QMap<QString, ButtonContainer> difficultButtonMap;
-
-    void setClearImpl(ButtonContainer button, bool clear);
 };
 
 #endif // BOSSWIDGET_H

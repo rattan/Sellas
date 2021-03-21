@@ -38,9 +38,35 @@ void BossDataSource::clearBossNow(QString characterName, QString bossName, QStri
         {":difficulty", Difficulty},
         {":clear_date", QDateTime::currentDateTime().toSecsSinceEpoch()}
     };
-    qDebug()<<characterName;
-    qDebug()<<bossName;
-    qDebug()<<Difficulty;
-    qDebug()<<QDateTime::currentDateTime().toSecsSinceEpoch();
     DatabaseManager::getInsetance().query(R"(UPDATE "boss" SET clear_date=:clear_date WHERE character_name=:character_name AND name=:name AND difficulty=:difficulty)", updateBindValue);
+}
+
+void BossDataSource::clearBossCancel(QString characterName, QString bossName, QString Difficulty)
+{
+    QMap<QString, QVariant> updateBindValue {
+        {":character_name", characterName},
+        {":name", bossName},
+        {":difficulty", Difficulty},
+        {":clear_date", 0}
+    };
+    DatabaseManager::getInsetance().query(R"(UPDATE "boss" SET clear_date=:clear_date WHERE character_name=:character_name AND name=:name AND difficulty=:difficulty)", updateBindValue);
+}
+
+Boss::Clear BossDataSource::getBossClear(QString characterName, QString bossName, QString Difficulty)
+{
+    return Boss::Clear("", "", 0);
+}
+
+QList<Boss::Clear> BossDataSource::getBossClear(QString characterName, QString bossName)
+{
+    QMap<QString, QVariant> updateBindValue {
+        {":character_name", characterName},
+        {":name", bossName}
+    };
+    QSqlQuery query = DatabaseManager::getInsetance().query(R"(SELECT * FROM "boss" WHERE character_name=:character_name AND name=:name)", updateBindValue);
+    QList<Boss::Clear> bossClearData;
+    while(query.next()) {
+        bossClearData.append(Boss::Clear(query.value("name").toString(), query.value("difficulty").toString(), query.value("clear_date").toInt()));
+    }
+    return bossClearData;
 }

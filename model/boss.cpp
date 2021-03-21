@@ -15,12 +15,9 @@ QString Boss::getImage() const
     return image;
 }
 
-QPixmap Boss::getImagePixmap()
+QPixmap Boss::getImagePixmap() const
 {
-    if(this->imagePixmap == nullptr) {
-        this->imagePixmap = new QPixmap(this->image);
-    }
-    return *this->imagePixmap;
+    return this->imagePixmap;
 }
 
 QPixmap Boss::getImageGrayScaledPixmap()
@@ -37,6 +34,7 @@ void Boss::initFromJson(QJsonObject json)
 {
     name = json.value("name").toString();
     image = json.value("image").toString();
+    imagePixmap = QPixmap(image);
     for(auto difficultRef: json.value("difficult").toArray()) {
         QJsonObject difficultObject = difficultRef.toObject();
         QString name = difficultObject.value("name").toString();
@@ -49,7 +47,13 @@ void Boss::initFromJson(QJsonObject json)
         }
         Boss::Difficult difficult(name, cycle, min_level, max_level, clearShare);
         this->difficultList.append(difficult);
+        this->difficultMap.insert(name, difficult);
     }
+}
+
+Boss::Difficult Boss::findDifficult(QString difficult) const
+{
+    return difficultMap.value(difficult, Boss::Difficult("", "", 0, 0, QList<QString>()));
 }
 
 QJsonObject Boss::toJson() const
@@ -103,4 +107,19 @@ QString Boss::Difficult::getCycle() const
 QString Boss::Difficult::getName() const
 {
     return name;
+}
+
+QString Boss::Clear::getName() const
+{
+    return name;
+}
+
+QString Boss::Clear::getDifficult() const
+{
+    return difficult;
+}
+
+int Boss::Clear::getClearDate() const
+{
+    return clearDate;
 }

@@ -2,6 +2,7 @@
 #include <QtTest/QtTest>
 #include <http/requests.h>
 #include <model/characterdatasource.h>
+#include <model/datedatasource.h>
 #include <model/sellasparser.h>
 #include"database/databasemanager.h"
 

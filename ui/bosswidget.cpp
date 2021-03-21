@@ -10,6 +10,10 @@ void BossWidget::difficultCancelButtonClick(bool checked)
     qDebug()<<difficult;
     emit clearBossCancel(bossName, difficult);
     setClear(difficult, false);
+    for(auto const &shareDifficult: this->difficultButtonMap.value(difficult, ButtonContainer(nullptr, nullptr, QList<QString>())).getClearShare()) {
+        emit clearBossCancel(bossName, shareDifficult);
+        setClear(shareDifficult, false);
+    }
 }
 
 void BossWidget::difficultButtonClick(bool checked)
@@ -22,6 +26,10 @@ void BossWidget::difficultButtonClick(bool checked)
     qDebug()<<difficult;
     emit clearBoss(bossName, difficult);
     setClear(difficult, true);
+    for(auto const &shareDifficult: this->difficultButtonMap.value(difficult, ButtonContainer(nullptr, nullptr, QList<QString>())).getClearShare()) {
+        emit clearBoss(bossName, shareDifficult);
+        setClear(shareDifficult, true);
+    }
 }
 
 BossWidget::BossWidget(Boss &boss, QWidget *parent) :
@@ -75,9 +83,16 @@ BossWidget::BossWidget(Boss &boss, QWidget *parent) :
 void BossWidget::setClear(QString difficult, bool clear)
 {
     ButtonContainer button = difficultButtonMap.value(difficult, ButtonContainer(nullptr, nullptr, QList<QString>()));
-    setClearImpl(button, clear);
-    for(auto const &shareDifficult: button.getClearShare()) {
-        setClearImpl(difficultButtonMap.value(shareDifficult, ButtonContainer(nullptr, nullptr, QList<QString>())), clear);
+    if(button.getDifficultButton() != nullptr && button.getCancelButton() != nullptr) {
+        button.getDifficultButton()->setDisabled(clear);
+        button.getCancelButton()->setDisabled(!clear);
+    }
+}
+
+void BossWidget::clear()
+{
+    for(auto difficult: difficultButtonMap.keys()) {
+        setClear(difficult, false);
     }
 }
 
@@ -86,12 +101,9 @@ BossWidget::~BossWidget()
     delete ui;
 }
 
-void BossWidget::setClearImpl(ButtonContainer button, bool clear)
+Boss BossWidget::getBossData() const
 {
-    if(button.getDifficultButton() != nullptr && button.getCancelButton() != nullptr) {
-        button.getDifficultButton()->setDisabled(clear);
-        button.getCancelButton()->setDisabled(!clear);
-    }
+    return bossData;
 }
 
 SellasButton* BossWidget::ButtonContainer::getDifficultButton() const
