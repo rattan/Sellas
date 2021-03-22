@@ -28,6 +28,7 @@ SOURCES += \
     model/sellasparser.cpp \
     model/server.cpp \
     model/uidata.cpp \
+    service/notificationservice.cpp \
     ui/bosswidget.cpp \
     ui/characteradddialog.cpp \
     ui/characterwidget.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     model/sellasparser.h \
     model/server.h \
     model/uidata.h \
+    service/notificationservice.h \
     ui/bosswidget.h \
     ui/characteradddialog.h \
     ui/characterwidget.h \

@@ -15,6 +15,9 @@
 #include <model/sellas.h>
 #include <model/sellasparser.h>
 
+#include <QIcon>
+#include <QSystemTrayIcon>
+
 
 Widget::Widget(QWidget *parent)
     : QWidget(parent),
@@ -109,10 +112,10 @@ void Widget::initializeLoadData()
     }
 }
 
-
+QTimer *timer;
 void Widget::on_pushButton_clicked()
 {
-    CharacterAddDialog characterAddDialog(sellas);
+        CharacterAddDialog characterAddDialog(sellas);
 
     if (characterAddDialog.exec() == QDialog::Accepted) {
         qDebug()<<"Accepted";
